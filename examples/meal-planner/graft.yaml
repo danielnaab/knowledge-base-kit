@@ -1,0 +1,3 @@
+apiVersion: graft/v0
+deps:
+  meta-knowledge-base: "https://forgejo.example/your-org/meta-knowledge-base.git#main"
