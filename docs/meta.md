@@ -59,6 +59,7 @@ Step-by-step guidance:
 - [Choose a strategy](../playbooks/choose-strategy.md) - Initial organization decisions
 - [Evolve a knowledge base](../playbooks/evolve-kb.md) - Evidence-based evolution (ENHANCED)
 - [Manage KB dependencies](../playbooks/manage-kb-dependencies.md) - Cross-repository coordination (NEW)
+- [Track spec-impl relationship](../playbooks/track-spec-impl-relationship.md) - Specification-to-implementation tracking (NEW)
 - [Agent workflow](../playbooks/agent-workflow.md) - Plan → Patch → Verify pattern
 - [Multi-agent coordination](../playbooks/multi-agent-coordination.md) - Specialized agent collaboration (NEW - Experimental)
 
