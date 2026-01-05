@@ -1,5 +1,14 @@
 # Changelog
 
+## [Unreleased]
+
+### Added
+- **Track spec-impl relationship playbook** - Concrete patterns for specification-to-implementation tracking
+  - CHANGELOG.md pattern for surfacing specification changes
+  - Three pinning options (config file, build metadata, text file)
+  - Reference format standard (`repo@commit`, `file.md#section`)
+  - Sync workflow and anti-patterns
+
 ## 2026-01-05 - Evolution for evolving knowledge bases
 
 Based on analysis of Graft project evolution (53 commits, 84 files, 15k+ lines), added guidance for knowledge bases that evolve significantly.
