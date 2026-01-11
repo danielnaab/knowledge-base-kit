@@ -32,6 +32,7 @@ Essential patterns for all knowledge bases:
 - [Provenance](../policies/provenance.md) - Grounding claims in sources
 - [Lifecycle](../policies/lifecycle.md) - Document status progression
 - [Linking](../policies/linking.md) - Navigation and references
+- [Intent-revealing structure](../policies/intent-revealing-structure.md) - File and directory naming
 - [Write boundaries](../policies/writes.md) - Safe agent editing zones
 - [Style](../policies/style.md) - Plain language and structure
 
@@ -125,4 +126,4 @@ See the [examples](../examples/) for complete configurations.
 
 ---
 
-**Last updated:** 2026-01-05 (added temporal layers, KB dependencies, evolution triggers, generated content, multi-agent coordination)
+**Last updated:** 2026-01-11 (added intent-revealing structure policy)

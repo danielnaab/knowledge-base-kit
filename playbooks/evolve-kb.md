@@ -16,7 +16,7 @@ Require:
 **Navigation pain** (can't find information):
 - Threshold: 3+ "where is X?" in one week
 - Minimal: add index or contents section
-- Next: organize by purpose or audience
+- Next: use intent-revealing structure (see [policy](../policies/intent-revealing-structure.md))
 
 **Authority pain** (documents conflict):
 - Threshold: any conflict between canonical sources
