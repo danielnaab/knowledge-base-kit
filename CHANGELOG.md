@@ -3,11 +3,11 @@
 ## [Unreleased]
 
 ### Added
-- **Intent-revealing structure policy** (exploration) - File and directory naming that communicates purpose
+- **Intent-revealing structure policy** - File and directory naming that communicates purpose
   - Names reveal content without opening files
-  - Structure becomes self-documenting navigation
+  - Hybrid names (number + intent) are acceptable
   - Addresses navigation pain at structural level
-  - Complements existing linking and authority policies
+  - Policy condensed to 44 lines; detailed examples in exploration doc
   - See `explorations/2026-01-intent-revealing-structure.md` for motivation and examples
 - **Track spec-impl relationship playbook** - Concrete patterns for specification-to-implementation tracking
   - CHANGELOG.md pattern for surfacing specification changes

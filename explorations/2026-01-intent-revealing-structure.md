@@ -157,7 +157,7 @@ Key points:
    - Git history preserves the rename for archaeology.
 
 2. **How specific is too specific?**
-   - If a filename exceeds ~50 characters, consider directory grouping instead.
+   - If a filename becomes unwieldy to type or read, consider directory grouping instead.
    - Example: `macos-user-accounts-work-personal-separation.md` → `macos-accounts/work-personal-separation.md`
    - The test: would a directory make navigation clearer?
 
@@ -168,11 +168,11 @@ Key points:
 
 ## Next steps
 
-1. Review proposed policy with users
-2. Gather feedback on clarity and applicability
+1. ~~Review proposed policy with users~~ - Done: policy refined based on review
+2. ~~Gather feedback on clarity and applicability~~ - Done: added hybrid names, resolved open questions
 3. Test policy application in 2-3 example repositories
 4. Refine based on observed usage patterns
-5. If validated, merge into main meta-knowledge-base
+5. Merge into main meta-knowledge-base (pending steps 3-4)
 
 ## Sources
 

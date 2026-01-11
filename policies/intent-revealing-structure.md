@@ -2,100 +2,43 @@
 
 File and directory names should communicate purpose without opening files.
 
-## Why this matters
-
-Navigation pain often stems from opaque names. When structure reveals intent, readers find information faster and understand the system's purpose at a glance.
-
 ## File naming
 
-Name files to reveal their content:
+Name files to reveal content. Avoid opaque names that require opening to understand.
 
-Correct:
-- `macos-user-accounts.md` (describes work/personal separation approach)
-- `secrets-management.md` (explains password management tiers)
-- `backup-recovery.md` (documents backup strategy)
-
-Incorrect:
-- `decision-0003.md` (reveals nothing about content)
-- `doc-v2.md` (version numbers hide purpose)
-- `misc-notes.md` (catch-all names force opening to understand)
+- `secrets-management.md` - clear purpose
+- `decision-0003.md` - reveals nothing (avoid)
+- `misc-notes.md` - catch-all name (avoid)
 
 ## Directory naming
 
-Name directories to reveal their purpose:
+Name directories to reveal purpose, not sequence or time.
 
-Correct:
-- `device-configuration/` (how devices are configured)
-- `integrations/` (how system connects to others)
-- `decisions/` (architectural decisions)
-
-Incorrect:
-- `docs/` (too generic when multiple doc types exist)
-- `old/` (temporal marker, not purpose)
-- `part-2/` (sequence, not intent)
+- `integrations/` - clear purpose
+- `part-2/` - sequence only (avoid)
+- `old/` - temporal marker (avoid)
 
 ## Hybrid names
 
-Sequential numbers are acceptable when combined with descriptive content:
+Numbers are acceptable when combined with descriptive content:
 
-Acceptable:
-- `decision-0001-authentication-flow.md` (number for ordering + intent)
-- `adr-003-database-selection.md` (ADR convention + purpose)
+- `decision-0001-auth-flow.md` - number + intent (acceptable)
+- `decision-0001.md` - number only (avoid)
 
-Avoid:
-- `decision-0001.md` (number only, reveals nothing)
-- `doc-v2.md` (version only, hides purpose)
-
-The key test: can someone unfamiliar guess the content from the name?
-
-## Structure as documentation
-
-Directory structure should reveal system architecture:
-
-Correct:
-```
-architecture/
-├── device-configuration/     # Clear: device setup
-│   ├── nix-darwin.md
-│   └── macos-accounts.md
-└── integrations/             # Clear: external connections
-    ├── homelab-access.md
-    └── ios-workflows.md
-```
-
-Incorrect:
-```
-architecture/
-├── section-1.md              # Opaque: what's in section 1?
-├── section-2.md
-└── notes/                    # Vague: what kind of notes?
-```
+The test: can someone unfamiliar guess the content from the name?
 
 ## When to apply
 
-Use intent-revealing names when:
-- A repository grows beyond 5-10 files
-- Multiple people (or agents) navigate the knowledge base
-- You observe "where is X?" questions repeatedly
+- Repository grows beyond 5-10 files
+- Multiple people or agents navigate the knowledge base
+- Repeated "where is X?" questions (3+ per week)
 
 ## Trade-offs
 
-Accepts:
-- Longer file names (more descriptive)
-- Occasional file renames when purpose shifts
-
-Gains:
-- Faster navigation (grep by purpose, not number)
-- Self-documenting structure (README unnecessary for navigation)
-- Clearer handoffs (new collaborators understand layout)
-
-## Relation to other policies
-
-This policy addresses **navigation pain** (from [evolve-kb playbook](../playbooks/evolve-kb.md)) at the structural level. It complements:
-- [Linking policy](linking.md) - how to connect documents
-- [Authority policy](authority.md) - which documents are canonical
-- [Temporal layers](temporal-layers.md) - lifecycle-based organization
+Accepts longer names and occasional renames when purpose shifts.
+Gains faster navigation, self-documenting structure, clearer handoffs.
 
 Related:
-- [Playbook: evolve a knowledge base](../playbooks/evolve-kb.md)
-- [Style policy](style.md)
+- [Evolve KB playbook](../playbooks/evolve-kb.md) - navigation pain triggers
+- [Linking policy](linking.md)
+- [Exploration: detailed examples](../explorations/2026-01-intent-revealing-structure.md)
