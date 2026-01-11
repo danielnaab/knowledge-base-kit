@@ -34,6 +34,20 @@ Incorrect:
 - `old/` (temporal marker, not purpose)
 - `part-2/` (sequence, not intent)
 
+## Hybrid names
+
+Sequential numbers are acceptable when combined with descriptive content:
+
+Acceptable:
+- `decision-0001-authentication-flow.md` (number for ordering + intent)
+- `adr-003-database-selection.md` (ADR convention + purpose)
+
+Avoid:
+- `decision-0001.md` (number only, reveals nothing)
+- `doc-v2.md` (version only, hides purpose)
+
+The key test: can someone unfamiliar guess the content from the name?
+
 ## Structure as documentation
 
 Directory structure should reveal system architecture:

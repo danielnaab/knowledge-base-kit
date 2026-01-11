@@ -1,7 +1,7 @@
 # Exploration: Intent-revealing structure principle
 
 **Date**: 2026-01-11
-**Status**: Proposed
+**Status**: Refined (ready for merge review)
 **Context**: Observed pattern in digital-strategy MacBook architecture reorganization
 
 ## Motivation
@@ -116,6 +116,11 @@ Check for:
 - Current minimal solution: "add index or contents section"
 - This principle: **structure itself becomes the index**
 
+### Compatible with existing examples
+- `examples/graft-project/docs/decisions/decision-0001-scope.md` uses hybrid naming (number + intent)
+- This follows the policy: numbers are acceptable when combined with descriptive content
+- See policy section "Hybrid names" for guidance
+
 ## Trade-offs
 
 ### Accepts
@@ -144,11 +149,22 @@ Key points:
 3. Structure communicates system architecture
 4. Apply when navigation pain exceeds threshold (3+ "where is X?" per week)
 
-## Open questions
+## Open questions (resolved)
 
-1. **When to rename vs redirect?** If external references exist, should we create redirects or just rename?
-2. **How specific is too specific?** Is `macos-user-accounts-work-personal-separation.md` too long?
-3. **Generic vs descriptive?** When is `docs/` acceptable vs when should it be `architecture/` or `guides/`?
+1. **When to rename vs redirect?**
+   - Prefer rename. Create redirects only for external links that cannot be updated.
+   - Internal links should be updated via search-and-replace.
+   - Git history preserves the rename for archaeology.
+
+2. **How specific is too specific?**
+   - If a filename exceeds ~50 characters, consider directory grouping instead.
+   - Example: `macos-user-accounts-work-personal-separation.md` → `macos-accounts/work-personal-separation.md`
+   - The test: would a directory make navigation clearer?
+
+3. **Generic vs descriptive?**
+   - `docs/` is acceptable for single-doc-type repositories or when context is unambiguous.
+   - Use descriptive names (`architecture/`, `guides/`, `runbooks/`) when multiple doc types exist or when readers might confuse purposes.
+   - The test: if someone asks "what's in docs/", is the answer obvious from context?
 
 ## Next steps
 
