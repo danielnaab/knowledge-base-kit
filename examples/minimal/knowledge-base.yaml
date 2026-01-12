@@ -13,7 +13,7 @@ imports:
   - kind: git
     repo: https://forgejo.example/your-org/meta-knowledge-base.git
     ref: main
-    entrypoint: meta.yaml
+    entrypoint: knowledge-base.yaml
 
 paths:
   docs: docs

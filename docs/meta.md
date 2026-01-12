@@ -116,7 +116,7 @@ meta:
 imports:
   - kind: local
     path: ../meta-knowledge-base
-    entrypoint: meta.yaml
+    entrypoint: knowledge-base.yaml
 ```
 
 Or reference via URL:
