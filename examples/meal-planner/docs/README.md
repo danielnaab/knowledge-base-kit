@@ -1,6 +1,6 @@
 # Meal planner KB (example)
 
-This KB follows the [meta knowledge base](https://forgejo.example/your-org/meta-knowledge-base/src/branch/main/README.md).
+This KB follows the [meta knowledge base](https://github.com/danielnaab/meta-knowledge-base/blob/main/README.md).
 
 ## Canonical sources
 

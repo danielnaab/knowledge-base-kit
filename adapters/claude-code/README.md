@@ -9,7 +9,7 @@ Tell Claude Code:
 1. Open the domain repo’s `knowledge-base.yaml`.
 2. Follow `entrypoints.agent`.
 3. Read the meta knowledge base:
-   - [https://forgejo.example/your-org/meta-knowledge-base/src/branch/main/README.md](https://forgejo.example/your-org/meta-knowledge-base/src/branch/main/README.md)
+   - [https://github.com/danielnaab/meta-knowledge-base/blob/main/README.md](https://github.com/danielnaab/meta-knowledge-base/blob/main/README.md)
 4. Obey authority/provenance/lifecycle/write-boundary policies.
 5. Use **Plan → Patch → Verify**:
    - [Agent workflow playbook](../../docs/playbooks/agent-workflow.md)

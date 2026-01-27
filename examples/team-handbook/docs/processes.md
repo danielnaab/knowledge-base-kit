@@ -27,4 +27,4 @@ If something breaks in production:
 
 ## Sources
 
-- [Meta KB agent workflow](https://forgejo.example/your-org/meta-knowledge-base/src/branch/main/docs/playbooks/agent-workflow.md)
+- [Meta KB agent workflow](https://github.com/danielnaab/meta-knowledge-base/blob/main/docs/playbooks/agent-workflow.md)

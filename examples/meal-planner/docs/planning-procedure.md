@@ -23,4 +23,4 @@ You should be able to answer:
 
 - [Pantry inventory](../data/pantry.yaml)
 - [Beans and Rice recipe](../data/recipes/beans-and-rice.yaml)
-- [Meta knowledge base](https://forgejo.example/your-org/meta-knowledge-base/src/branch/main/README.md)
+- [Meta knowledge base](https://github.com/danielnaab/meta-knowledge-base/blob/main/README.md)

@@ -2,8 +2,8 @@
 
 Self-contained example knowledge bases demonstrating each organizational strategy.
 
-All examples reference the meta entrypoint:
-- [https://forgejo.example/your-org/meta-knowledge-base/src/branch/main/README.md](https://forgejo.example/your-org/meta-knowledge-base/src/branch/main/README.md)
+All examples reference the meta knowledge base:
+- [https://github.com/danielnaab/meta-knowledge-base/blob/main/README.md](https://github.com/danielnaab/meta-knowledge-base/blob/main/README.md)
 
 ## Examples by strategy
 
@@ -22,10 +22,3 @@ All examples reference the meta entrypoint:
 - **Metadata + views**: Items have structured frontmatter. Index provides filtered views by status, tags, etc.
 
 See [strategies documentation](../docs/strategies/README.md) for guidance on choosing an approach.
-
-## Placeholder URLs
-
-Examples use `forgejo.example` URLs as placeholders:
-- `https://forgejo.example/your-org/meta-knowledge-base/...`
-
-Replace with your actual repository URL when adopting these patterns.

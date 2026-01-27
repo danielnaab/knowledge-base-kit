@@ -7,11 +7,11 @@ entrypoints:
   agent: AGENTS.md
 
 meta:
-  entrypoint: "https://forgejo.example/your-org/meta-knowledge-base/src/branch/main/README.md"
+  entrypoint: "https://github.com/danielnaab/meta-knowledge-base/blob/main/README.md"
 
 imports:
   - kind: git
-    repo: https://forgejo.example/your-org/meta-knowledge-base.git
+    repo: https://github.com/danielnaab/meta-knowledge-base.git
     ref: main
     entrypoint: knowledge-base.yaml
 
