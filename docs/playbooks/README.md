@@ -7,4 +7,4 @@ Playbooks are procedural guidance.
 - [Agent workflow](agent-workflow.md)
 
 Context:
-- [Meta knowledge base entrypoint](../docs/meta.md)
+- [Meta knowledge base entrypoint](../meta.md)

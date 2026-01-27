@@ -5,7 +5,7 @@ Before making changes, read:
 - [Meta knowledge base entrypoint](https://forgejo.example/your-org/meta-knowledge-base/src/branch/main/docs/meta.md)
 
 Use:
-- [Plan → Patch → Verify](../../../playbooks/agent-workflow.md)
+- [Plan → Patch → Verify](../../../docs/playbooks/agent-workflow.md)
 
 Remember:
 - keep diffs small

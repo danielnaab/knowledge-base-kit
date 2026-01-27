@@ -9,4 +9,4 @@ Example shapes for engineering repos:
 
 Related:
 - [Strategies](../../docs/strategies/README.md)
-- [Linking policy](../../policies/linking.md)
+- [Linking policy](../../docs/policies/linking.md)

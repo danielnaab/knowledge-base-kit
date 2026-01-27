@@ -10,4 +10,4 @@ Expectations:
 - Keep notes time-bounded and concrete.
 
 Helpful:
-- [Plan → Patch → Verify](../../../playbooks/agent-workflow.md)
+- [Plan → Patch → Verify](../../../docs/playbooks/agent-workflow.md)

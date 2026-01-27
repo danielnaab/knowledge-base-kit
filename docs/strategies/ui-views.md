@@ -44,7 +44,7 @@ Introduce a UI only when there is **persistent, observed pain**, such as:
   - changes are avoided because edits feel risky
 
 If none of these are present, prefer improving markdown navigation first
-(see the [Linking policy](../../policies/linking.md)).
+(see the [Linking policy](../policies/linking.md)).
 
 ---
 
@@ -123,7 +123,7 @@ UI choices should follow strategy decisions, not replace them.
 
 ## Related guidance
 
-- [Playbook: evolve a knowledge base](../../playbooks/evolve-kb.md)
-- [Playbook: evolve a UI](../../playbooks/evolve-ui.md)
-- [Linking policy](../../policies/linking.md)
+- [Playbook: evolve a knowledge base](../playbooks/evolve-kb.md)
+- [Playbook: evolve a UI](../playbooks/evolve-ui.md)
+- [Linking policy](../policies/linking.md)
 - [Meta knowledge base entrypoint](../meta.md)

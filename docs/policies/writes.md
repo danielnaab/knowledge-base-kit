@@ -10,4 +10,4 @@ A domain repo may specify allow/deny globs in its `knowledge-base.yaml`:
 If not specified, agents should be conservative and prefer documentation-only edits.
 
 Related:
-- [Meta knowledge base entrypoint](../docs/meta.md)
+- [Meta knowledge base entrypoint](../meta.md)

@@ -16,4 +16,4 @@ Use **Plan → Patch → Verify**.
 - otherwise specify what a human should run
 
 Context:
-- [Meta knowledge base entrypoint](../docs/meta.md)
+- [Meta knowledge base entrypoint](../meta.md)

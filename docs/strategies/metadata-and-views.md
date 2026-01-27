@@ -17,5 +17,5 @@ Add small metadata to artifacts and generate indexes/views automatically.
 - brittle schemas
 
 ## Recommended safeguards
-- [Linking policy](../../policies/linking.md)
-- [Playbook: evolve a knowledge base](../../playbooks/evolve-kb.md)
+- [Linking policy](../policies/linking.md)
+- [Playbook: evolve a knowledge base](../playbooks/evolve-kb.md)

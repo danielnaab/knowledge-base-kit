@@ -141,7 +141,7 @@ Check for:
 
 ## Recommended policy language
 
-Proposed policy: [intent-revealing-structure.md](../policies/intent-revealing-structure.md)
+Proposed policy: [intent-revealing-structure.md](../docs/policies/intent-revealing-structure.md)
 
 Key points:
 1. File names reveal content without opening

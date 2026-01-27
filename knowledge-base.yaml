@@ -12,8 +12,8 @@ entrypoints:
 
 provides:
   strategiesDir: docs/strategies
-  policiesDir: policies
-  playbooksDir: playbooks
+  policiesDir: docs/policies
+  playbooksDir: docs/playbooks
   starterKitsDir: starter-kits
   examplesDir: examples
   adaptersDir: adapters

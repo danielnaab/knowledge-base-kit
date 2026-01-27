@@ -25,20 +25,20 @@ This system does **not** mandate document taxonomies. It standardizes:
 
 Essential patterns for all knowledge bases:
 
-- [Authority](../policies/authority.md) - What counts as canonical truth
-- [Provenance](../policies/provenance.md) - Grounding claims in sources
-- [Lifecycle](../policies/lifecycle.md) - Document status progression
-- [Linking](../policies/linking.md) - Navigation and references
-- [Intent-revealing structure](../policies/intent-revealing-structure.md) - File and directory naming
-- [Write boundaries](../policies/writes.md) - Safe agent editing zones
-- [Style](../policies/style.md) - Plain language and structure
+- [Authority](policies/authority.md) - What counts as canonical truth
+- [Provenance](policies/provenance.md) - Grounding claims in sources
+- [Lifecycle](policies/lifecycle.md) - Document status progression
+- [Linking](policies/linking.md) - Navigation and references
+- [Intent-revealing structure](policies/intent-revealing-structure.md) - File and directory naming
+- [Write boundaries](policies/writes.md) - Safe agent editing zones
+- [Style](policies/style.md) - Plain language and structure
 
 ### Extended Policies
 
 For evolving and complex knowledge bases:
 
-- [Temporal layers](../policies/temporal-layers.md) - Organizing ephemeral, tracking, and durable knowledge
-- [Generated content](../policies/generated-content.md) - When to automate documentation
+- [Temporal layers](policies/temporal-layers.md) - Organizing ephemeral, tracking, and durable knowledge
+- [Generated content](policies/generated-content.md) - When to automate documentation
 
 ### Organization Strategies
 
@@ -54,12 +54,12 @@ Choose your approach:
 
 Step-by-step guidance:
 
-- [Choose a strategy](../playbooks/choose-strategy.md) - Initial organization decisions
-- [Evolve a knowledge base](../playbooks/evolve-kb.md) - Evidence-based evolution
-- [Manage KB dependencies](../playbooks/manage-kb-dependencies.md) - Cross-repository coordination
-- [Track spec-impl relationship](../playbooks/track-spec-impl-relationship.md) - Specification-to-implementation tracking
-- [Agent workflow](../playbooks/agent-workflow.md) - Plan → Patch → Verify pattern
-- [Multi-agent coordination](../playbooks/multi-agent-coordination.md) - Specialized agent collaboration
+- [Choose a strategy](playbooks/choose-strategy.md) - Initial organization decisions
+- [Evolve a knowledge base](playbooks/evolve-kb.md) - Evidence-based evolution
+- [Manage KB dependencies](playbooks/manage-kb-dependencies.md) - Cross-repository coordination
+- [Track spec-impl relationship](playbooks/track-spec-impl-relationship.md) - Specification-to-implementation tracking
+- [Agent workflow](playbooks/agent-workflow.md) - Plan → Patch → Verify pattern
+- [Multi-agent coordination](playbooks/multi-agent-coordination.md) - Specialized agent collaboration
 
 ## Quick Start Paths
 
@@ -67,18 +67,18 @@ Step-by-step guidance:
 
 1. Create `knowledge-base.yaml` with entrypoints
 2. Add simple `docs/README.md` and optional `docs/agents.md`
-3. Evolve based on pain (see [Evolve KB playbook](../playbooks/evolve-kb.md))
+3. Evolve based on pain (see [Evolve KB playbook](playbooks/evolve-kb.md))
 
 ### For an evolving knowledge base
 
-1. Review [Evolution triggers](../playbooks/evolve-kb.md#evidence-based-evolution-triggers)
+1. Review [Evolution triggers](playbooks/evolve-kb.md#evidence-based-evolution-triggers)
 2. Add what you need based on observed pain
 3. Start with low-cost moves (entrypoints, lifecycle markers)
 4. Iterate based on evidence
 
 ### For multi-repository projects
 
-1. Separate specs from implementation if needed (see [KB dependencies](../playbooks/manage-kb-dependencies.md))
+1. Separate specs from implementation if needed (see [KB dependencies](playbooks/manage-kb-dependencies.md))
 2. Declare relationship types in knowledge-base.yaml
 3. Establish sync policies
 4. Track drift explicitly
@@ -87,8 +87,8 @@ Step-by-step guidance:
 
 1. Define human and agent entrypoints
 2. Set write boundaries
-3. Use Plan → Patch → Verify pattern (see [Agent workflow](../playbooks/agent-workflow.md))
-4. Consider multi-agent patterns if you have role separation (see [Multi-agent coordination](../playbooks/multi-agent-coordination.md))
+3. Use Plan → Patch → Verify pattern (see [Agent workflow](playbooks/agent-workflow.md))
+4. Consider multi-agent patterns if you have role separation (see [Multi-agent coordination](playbooks/multi-agent-coordination.md))
 
 ## Philosophy
 

@@ -4,7 +4,7 @@ This playbook describes how to introduce and evolve user interfaces
 for a knowledge base **safely and incrementally**.
 
 It assumes familiarity with the
-[meta knowledge base entrypoint](../docs/meta.md).
+[meta knowledge base entrypoint](../meta.md).
 
 ---
 
@@ -98,7 +98,7 @@ If it does not, remove or simplify it.
 
 ## Related guidance
 
-- [UI views as derived artifacts](../docs/strategies/ui-views.md)
+- [UI views as derived artifacts](../strategies/ui-views.md)
 - [Playbook: evolve a knowledge base](evolve-kb.md)
 - [Linking policy](../policies/linking.md)
-- [Meta knowledge base entrypoint](../docs/meta.md)
+- [Meta knowledge base entrypoint](../meta.md)

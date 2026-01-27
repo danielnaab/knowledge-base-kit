@@ -1,10 +1,10 @@
 # Playbook: choose a strategy
 
 ## Step 1: identify the primary job
-- onboarding/browsing → [Handbook](../docs/strategies/handbook.md)
-- research/ideas → [Atomic notes](../docs/strategies/atomic-notes.md)
-- high trust/audit → [Source-first synthesis](../docs/strategies/source-first-synthesis.md)
-- scale/queries → [Metadata + views](../docs/strategies/metadata-and-views.md)
+- onboarding/browsing → [Handbook](../strategies/handbook.md)
+- research/ideas → [Atomic notes](../strategies/atomic-notes.md)
+- high trust/audit → [Source-first synthesis](../strategies/source-first-synthesis.md)
+- scale/queries → [Metadata + views](../strategies/metadata-and-views.md)
 
 ## Step 2: pick the smallest starting move
 - entrypoint docs

@@ -15,9 +15,9 @@ A small set of curated pages that tell the story of the system.
 - a few topic pages (how it works, glossary, how-to)
 
 ## Recommended safeguards
-- [Authority policy](../../policies/authority.md)
-- [Provenance policy](../../policies/provenance.md)
-- [Linking policy](../../policies/linking.md)
+- [Authority policy](../policies/authority.md)
+- [Provenance policy](../policies/provenance.md)
+- [Linking policy](../policies/linking.md)
 
 Next:
-- [How to evolve beyond handbook](../../playbooks/evolve-kb.md)
+- [How to evolve beyond handbook](../playbooks/evolve-kb.md)

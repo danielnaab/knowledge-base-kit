@@ -12,5 +12,5 @@ Tell Claude Code:
    - [https://forgejo.example/your-org/meta-knowledge-base/src/branch/main/docs/meta.md](https://forgejo.example/your-org/meta-knowledge-base/src/branch/main/docs/meta.md)
 4. Obey authority/provenance/lifecycle/write-boundary policies.
 5. Use **Plan → Patch → Verify**:
-   - [Agent workflow playbook](../../playbooks/agent-workflow.md)
+   - [Agent workflow playbook](../../docs/playbooks/agent-workflow.md)
 

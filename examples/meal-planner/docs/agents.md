@@ -10,4 +10,4 @@ Rules of thumb:
 
 Helpful:
 - [Planning procedure](planning-procedure.md)
-- [Plan → Patch → Verify](../../../playbooks/agent-workflow.md)
+- [Plan → Patch → Verify](../../../docs/playbooks/agent-workflow.md)

@@ -26,5 +26,5 @@ Evolve only with evidence:
 - Scale pain → introduce minimal metadata and generate views
 
 See also:
-- [Playbook: choose a strategy](../../playbooks/choose-strategy.md)
-- [Playbook: evolve a knowledge base](../../playbooks/evolve-kb.md)
+- [Playbook: choose a strategy](../playbooks/choose-strategy.md)
+- [Playbook: evolve a knowledge base](../playbooks/evolve-kb.md)
