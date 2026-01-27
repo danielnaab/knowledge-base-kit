@@ -56,6 +56,7 @@ Step-by-step guidance:
 
 - [Choose a strategy](playbooks/choose-strategy.md) - Initial organization decisions
 - [Evolve a knowledge base](playbooks/evolve-kb.md) - Evidence-based evolution
+- [Evolve a UI](playbooks/evolve-ui.md) - Safe UI introduction
 - [Manage KB dependencies](playbooks/manage-kb-dependencies.md) - Cross-repository coordination
 - [Track spec-impl relationship](playbooks/track-spec-impl-relationship.md) - Specification-to-implementation tracking
 - [Agent workflow](playbooks/agent-workflow.md) - Plan → Patch → Verify pattern
@@ -66,7 +67,7 @@ Step-by-step guidance:
 ### For a new knowledge base
 
 1. Create `knowledge-base.yaml` with entrypoints
-2. Add simple `docs/README.md` and optional `docs/agents.md`
+2. Add simple `docs/README.md` and optional `AGENTS.md`
 3. Evolve based on pain (see [Evolve KB playbook](playbooks/evolve-kb.md))
 
 ### For an evolving knowledge base

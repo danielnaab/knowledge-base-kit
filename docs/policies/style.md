@@ -1,5 +1,7 @@
 # Style policy
 
+**Status:** stable
+
 Keep documentation:
 - plain language
 - concrete and specific

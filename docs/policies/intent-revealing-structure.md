@@ -1,5 +1,7 @@
 # Intent-revealing structure policy
 
+**Status:** stable
+
 File and directory names should communicate purpose without opening files.
 
 ## File naming
@@ -41,4 +43,4 @@ Gains faster navigation, self-documenting structure, clearer handoffs.
 Related:
 - [Evolve KB playbook](../playbooks/evolve-kb.md) - navigation pain triggers
 - [Linking policy](linking.md)
-- [Exploration: detailed examples](../explorations/2026-01-intent-revealing-structure.md)
+- [Exploration: detailed examples](../../notes/2026-01-11-intent-revealing-structure.md)

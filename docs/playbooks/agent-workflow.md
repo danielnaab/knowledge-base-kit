@@ -1,5 +1,7 @@
 # Playbook: agent workflow
 
+**Status:** stable
+
 Use **Plan → Patch → Verify**.
 
 ## Plan

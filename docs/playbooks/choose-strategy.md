@@ -1,5 +1,7 @@
 # Playbook: choose a strategy
 
+**Status:** stable
+
 ## Step 1: identify the primary job
 - onboarding/browsing → [Handbook](../strategies/handbook.md)
 - research/ideas → [Atomic notes](../strategies/atomic-notes.md)

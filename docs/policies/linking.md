@@ -1,5 +1,7 @@
 # Linking policy
 
+**Status:** stable
+
 Links exist to improve navigation and trust, especially when browsing in Forgejo/GitHub.
 
 ## Navigation links (required)

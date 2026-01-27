@@ -1,5 +1,7 @@
 # Temporal layers policy
 
+**Status:** stable
+
 Knowledge bases often need three temporal layers:
 
 ## Ephemeral (notes/, explorations/)

@@ -4,7 +4,7 @@ description: "Meal planning and grocery helper KB using canonical data + source-
 
 entrypoints:
   human: docs/README.md
-  agent: docs/agents.md
+  agent: AGENTS.md
 
 meta:
   entrypoint: "https://forgejo.example/your-org/meta-knowledge-base/src/branch/main/docs/meta.md"

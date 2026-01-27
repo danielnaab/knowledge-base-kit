@@ -1,5 +1,7 @@
 # Generated content policy
 
+**Status:** stable
+
 Default: handwrite documentation. Generate only when pain is clear.
 
 ## Pain triggers

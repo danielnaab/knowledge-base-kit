@@ -1,5 +1,7 @@
 # Lifecycle policy
 
+**Status:** stable
+
 Recommended statuses:
 - draft
 - working
@@ -11,6 +13,15 @@ Stable knowledge should:
 - be reviewed
 - align with canonical sources
 - include provenance where required
+
+## Example frontmatter
+
+```markdown
+---
+status: working
+---
+# Document Title
+```
 
 Related:
 - [Authority policy](authority.md)

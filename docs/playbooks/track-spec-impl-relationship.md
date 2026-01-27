@@ -1,5 +1,7 @@
 # Tracking specification-to-implementation relationship
 
+**Status:** stable
+
 Guidance for maintaining clear tracking between specification KBs and implementation KBs.
 
 ## When to use this pattern

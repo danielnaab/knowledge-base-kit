@@ -1,5 +1,7 @@
 # Authority policy
 
+**Status:** stable
+
 A knowledge base must clearly distinguish:
 
 - canonical truth (sources of truth)

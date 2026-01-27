@@ -1,5 +1,7 @@
 # Managing knowledge base dependencies
 
+**Status:** stable
+
 Guidance for knowledge bases that import or depend on others.
 
 ## Declare dependencies

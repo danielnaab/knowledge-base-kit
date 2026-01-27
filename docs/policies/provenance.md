@@ -1,5 +1,7 @@
 # Provenance policy
 
+**Status:** stable
+
 When a claim matters, show where it came from.
 
 ## When required
@@ -13,6 +15,14 @@ When a claim matters, show where it came from.
 
 ## Where provenance should appear
 Use a dedicated `## Sources` section whenever possible.
+
+## Example Sources section
+
+```markdown
+## Sources
+- [Authority policy](policies/authority.md#conflict-resolution)
+- [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119) - requirement level keywords
+```
 
 Related:
 - [Authority policy](authority.md)

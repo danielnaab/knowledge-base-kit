@@ -1,5 +1,7 @@
 # Write boundaries policy
 
+**Status:** stable
+
 Agents and automation need clear boundaries.
 
 A domain repo may specify allow/deny globs in its `knowledge-base.yaml`:
@@ -8,6 +10,15 @@ A domain repo may specify allow/deny globs in its `knowledge-base.yaml`:
 - `deny`: where an agent must never write (secrets, prod configs)
 
 If not specified, agents should be conservative and prefer documentation-only edits.
+
+## Example configuration
+
+```yaml
+rules:
+  writes:
+    allow: ["docs/**", "notes/**"]
+    deny: ["secrets/**", ".env*", "*.key"]
+```
 
 Related:
 - [Meta knowledge base entrypoint](../meta.md)

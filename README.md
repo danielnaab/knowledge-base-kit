@@ -13,6 +13,5 @@ Downstream repositories should link to **one stable entrypoint document**:
 - [Strategies](docs/strategies/README.md)
 - [Policies](docs/policies/README.md)
 - [Playbooks](docs/playbooks/README.md)
-- [Starter kits (optional)](starter-kits/README.md)
 - [Examples](examples/README.md)
 - [Claude Code adapter](adapters/claude-code/README.md)

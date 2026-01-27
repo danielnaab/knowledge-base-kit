@@ -1,5 +1,7 @@
 # Playbook: evolve a UI
 
+**Status:** stable
+
 This playbook describes how to introduce and evolve user interfaces
 for a knowledge base **safely and incrementally**.
 
