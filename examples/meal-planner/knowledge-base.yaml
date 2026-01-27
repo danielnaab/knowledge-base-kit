@@ -7,7 +7,7 @@ entrypoints:
   agent: AGENTS.md
 
 meta:
-  entrypoint: "https://forgejo.example/your-org/meta-knowledge-base/src/branch/main/docs/meta.md"
+  entrypoint: "https://forgejo.example/your-org/meta-knowledge-base/src/branch/main/README.md"
 
 imports:
   - kind: git

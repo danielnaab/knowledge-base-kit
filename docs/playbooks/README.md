@@ -11,4 +11,4 @@ Playbooks are procedural guidance.
 - [Evolve a UI](evolve-ui.md)
 
 Context:
-- [Meta knowledge base entrypoint](../meta.md)
+- [Meta knowledge base](../../README.md)

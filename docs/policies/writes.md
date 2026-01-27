@@ -21,4 +21,4 @@ rules:
 ```
 
 Related:
-- [Meta knowledge base entrypoint](../meta.md)
+- [Meta knowledge base](../../README.md)

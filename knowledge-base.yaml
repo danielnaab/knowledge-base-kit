@@ -2,12 +2,8 @@ apiVersion: meta-kb/v1
 name: meta-knowledge-base
 version: 0.5.0
 
-# For tooling: treat this as the only stable doc entrypoint.
-stable:
-  entrypointDoc: docs/meta.md
-
 entrypoints:
-  human: docs/meta.md
+  human: README.md
   agent: AGENTS.md
 
 paths:

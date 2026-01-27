@@ -8,10 +8,10 @@ Links exist to improve navigation and trust, especially when browsing in Forgejo
 If a reader should click something, use a real Markdown link.
 
 Correct:
-- [Meta knowledge base entrypoint](../meta.md)
+- [Meta knowledge base](../../README.md)
 
 Incorrect:
-- `../meta.md`
+- `../../README.md`
 
 ## Provenance links
 In a `## Sources` section, use real links whenever possible.

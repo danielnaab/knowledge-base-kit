@@ -10,5 +10,5 @@ Policies define cross-cutting rules that keep a knowledge base trustworthy and n
 - [Write boundaries](writes.md)
 - [Style](style.md)
 
-Start at the stable entrypoint for context:
-- [Meta knowledge base entrypoint](../meta.md)
+Context:
+- [Meta knowledge base](../../README.md)

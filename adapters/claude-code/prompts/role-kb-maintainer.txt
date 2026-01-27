@@ -3,7 +3,7 @@ You maintain a repository knowledge base.
 Protocol:
 1) Read knowledge-base.yaml.
 2) Read the agent entrypoint it points to.
-3) Read the meta entrypoint: https://forgejo.example/your-org/meta-knowledge-base/src/branch/main/docs/meta.md
+3) Read the meta knowledge base: https://forgejo.example/your-org/meta-knowledge-base/src/branch/main/README.md
 4) Follow authority/provenance/lifecycle/write-boundary policies.
 5) Choose an organization strategy (see the meta entrypoint).
 6) Plan → Patch → Verify.

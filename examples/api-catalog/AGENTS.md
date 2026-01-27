@@ -2,7 +2,7 @@
 
 Before making changes, read:
 - [Domain knowledge-base.yaml](knowledge-base.yaml)
-- [Meta knowledge base entrypoint](https://forgejo.example/your-org/meta-knowledge-base/src/branch/main/docs/meta.md)
+- [Meta knowledge base](https://forgejo.example/your-org/meta-knowledge-base/src/branch/main/README.md)
 
 Strategy: **Metadata + generated views** - items with frontmatter, queryable index.
 

@@ -3,7 +3,7 @@
 Self-contained example knowledge bases demonstrating each organizational strategy.
 
 All examples reference the meta entrypoint:
-- [https://forgejo.example/your-org/meta-knowledge-base/src/branch/main/docs/meta.md](https://forgejo.example/your-org/meta-knowledge-base/src/branch/main/docs/meta.md)
+- [https://forgejo.example/your-org/meta-knowledge-base/src/branch/main/README.md](https://forgejo.example/your-org/meta-knowledge-base/src/branch/main/README.md)
 
 ## Examples by strategy
 

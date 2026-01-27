@@ -126,4 +126,4 @@ UI choices should follow strategy decisions, not replace them.
 - [Playbook: evolve a knowledge base](../playbooks/evolve-kb.md)
 - [Playbook: evolve a UI](../playbooks/evolve-ui.md)
 - [Linking policy](../policies/linking.md)
-- [Meta knowledge base entrypoint](../meta.md)
+- [Meta knowledge base](../../README.md)

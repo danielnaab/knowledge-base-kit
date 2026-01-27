@@ -5,7 +5,7 @@ This is the agent entrypoint for the meta-knowledge-base repository.
 ## Quick orientation
 
 - **Configuration**: [knowledge-base.yaml](knowledge-base.yaml)
-- **Human entrypoint**: [docs/meta.md](docs/meta.md) (stable entrypoint for all downstream KBs)
+- **Human entrypoint**: [README.md](README.md)
 - **Examples**: [examples/](examples/) (strategy demonstrations)
 
 ## Key policies
