@@ -1,6 +1,6 @@
 # Multi-agent coordination
 
-**Status:** Experimental
+**Status:** working
 
 Patterns for multiple specialized agents collaborating on same knowledge base.
 

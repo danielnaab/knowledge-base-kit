@@ -7,20 +7,17 @@ Everything else in this repository may evolve; links from here will be kept curr
 
 This system does **not** mandate document taxonomies. It standardizes:
 
-**Core dimensions (established):**
 - **Entrypoints**: where humans and agents begin
 - **Authority**: what counts as canonical truth
 - **Provenance**: how to ground important claims in sources
 - **Lifecycle**: draft → working → stable → deprecated
 - **Strategy**: how to choose an organization approach and evolve it with evidence
 - **Linking**: how to keep browser navigation intuitive
-
-**New dimensions (2026):**
 - **Temporal layers**: organizing ephemeral, tracking, and durable knowledge
 - **KB dependencies**: managing cross-repository knowledge relationships
 - **Evolution triggers**: evidence-based approach to adding complexity
 - **Generated content**: when and how to automate documentation
-- **Multi-agent coordination**: patterns for specialized agent collaboration (experimental)
+- **Multi-agent coordination**: patterns for specialized agent collaboration
 
 ## Read next
 
@@ -40,8 +37,8 @@ Essential patterns for all knowledge bases:
 
 For evolving and complex knowledge bases:
 
-- [Temporal layers](../policies/temporal-layers.md) - Organizing ephemeral, tracking, and durable knowledge (NEW)
-- [Generated content](../policies/generated-content.md) - When to automate documentation (NEW)
+- [Temporal layers](../policies/temporal-layers.md) - Organizing ephemeral, tracking, and durable knowledge
+- [Generated content](../policies/generated-content.md) - When to automate documentation
 
 ### Organization Strategies
 
@@ -58,11 +55,11 @@ Choose your approach:
 Step-by-step guidance:
 
 - [Choose a strategy](../playbooks/choose-strategy.md) - Initial organization decisions
-- [Evolve a knowledge base](../playbooks/evolve-kb.md) - Evidence-based evolution (ENHANCED)
-- [Manage KB dependencies](../playbooks/manage-kb-dependencies.md) - Cross-repository coordination (NEW)
-- [Track spec-impl relationship](../playbooks/track-spec-impl-relationship.md) - Specification-to-implementation tracking (NEW)
+- [Evolve a knowledge base](../playbooks/evolve-kb.md) - Evidence-based evolution
+- [Manage KB dependencies](../playbooks/manage-kb-dependencies.md) - Cross-repository coordination
+- [Track spec-impl relationship](../playbooks/track-spec-impl-relationship.md) - Specification-to-implementation tracking
 - [Agent workflow](../playbooks/agent-workflow.md) - Plan → Patch → Verify pattern
-- [Multi-agent coordination](../playbooks/multi-agent-coordination.md) - Specialized agent collaboration (NEW - Experimental)
+- [Multi-agent coordination](../playbooks/multi-agent-coordination.md) - Specialized agent collaboration
 
 ## Quick Start Paths
 
@@ -123,7 +120,3 @@ Or reference via URL:
 - https://forgejo.example/your-org/meta-knowledge-base/src/branch/main/docs/meta.md
 
 See the [examples](../examples/) for complete configurations.
-
----
-
-**Last updated:** 2026-01-11 (added intent-revealing structure policy)
