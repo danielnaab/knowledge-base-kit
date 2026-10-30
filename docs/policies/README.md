@@ -1,3 +1,6 @@
+---
+status: stable
+---
 # Policies
 
 Policies define cross-cutting rules that keep a knowledge base trustworthy and navigable.

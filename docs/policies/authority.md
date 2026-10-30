@@ -1,6 +1,7 @@
+---
+status: stable
+---
 # Authority policy
-
-**Status:** stable
 
 A knowledge base must clearly distinguish:
 

@@ -1,6 +1,7 @@
+---
+status: stable
+---
 # Playbook: evolve a knowledge base
-
-**Status:** stable
 
 Safe evolution without over-architecting.
 

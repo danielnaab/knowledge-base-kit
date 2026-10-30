@@ -1,3 +1,6 @@
+---
+status: stable
+---
 # Strategy: Metadata + generated views
 
 Add small metadata to artifacts and generate indexes/views automatically.

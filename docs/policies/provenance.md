@@ -1,6 +1,7 @@
+---
+status: stable
+---
 # Provenance policy
-
-**Status:** stable
 
 When a claim matters, show where it came from.
 

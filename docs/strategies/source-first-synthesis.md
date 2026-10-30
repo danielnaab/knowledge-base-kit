@@ -1,3 +1,6 @@
+---
+status: stable
+---
 # Strategy: Source-first synthesis
 
 Canonical sources are primary. Syntheses reference sources at a useful granularity.

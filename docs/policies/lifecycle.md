@@ -1,6 +1,7 @@
+---
+status: stable
+---
 # Lifecycle policy
-
-**Status:** stable
 
 Recommended statuses:
 - draft

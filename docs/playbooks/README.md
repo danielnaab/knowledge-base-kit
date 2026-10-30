@@ -1,3 +1,6 @@
+---
+status: stable
+---
 # Playbooks
 
 Playbooks are procedural guidance.

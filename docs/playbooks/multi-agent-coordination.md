@@ -1,6 +1,7 @@
+---
+status: working
+---
 # Multi-agent coordination
-
-**Status:** working
 
 Patterns for multiple specialized agents collaborating on same knowledge base.
 
