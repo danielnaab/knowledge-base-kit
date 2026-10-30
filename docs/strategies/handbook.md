@@ -1,3 +1,6 @@
+---
+status: stable
+---
 # Strategy: Handbook
 
 A small set of curated pages that tell the story of the system.

@@ -1,3 +1,6 @@
+---
+status: stable
+---
 # UI views as derived artifacts
 
 User interfaces (UIs) are **not a separate knowledge organization strategy**.

@@ -1,6 +1,7 @@
+---
+status: stable
+---
 # Intent-revealing structure policy
-
-**Status:** stable
 
 File and directory names should communicate purpose without opening files.
 

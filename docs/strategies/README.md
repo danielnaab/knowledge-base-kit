@@ -1,3 +1,6 @@
+---
+status: stable
+---
 # Knowledge organization strategies
 
 Choose a strategy consciously. Evolve only with evidence.

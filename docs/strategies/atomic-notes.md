@@ -1,3 +1,6 @@
+---
+status: stable
+---
 # Strategy: Atomic notes + maps of content
 
 Many small notes (one idea per note) connected by index pages ("maps of content").

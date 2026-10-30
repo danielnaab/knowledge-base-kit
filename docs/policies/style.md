@@ -1,6 +1,7 @@
+---
+status: stable
+---
 # Style policy
-
-**Status:** stable
 
 Keep documentation:
 - plain language

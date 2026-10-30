@@ -1,6 +1,7 @@
+---
+status: stable
+---
 # Playbook: choose a strategy
-
-**Status:** stable
 
 ## Step 1: identify the primary job
 - onboarding/browsing → [Handbook](../strategies/handbook.md)

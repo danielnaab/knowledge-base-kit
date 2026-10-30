@@ -1,6 +1,7 @@
+---
+status: stable
+---
 # Write boundaries policy
-
-**Status:** stable
 
 Agents and automation need clear boundaries.
 
