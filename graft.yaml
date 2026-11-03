@@ -1,3 +1,0 @@
-apiVersion: graft/v0
-# Currently no external deps, but this allows future extensibility
-deps: {}
