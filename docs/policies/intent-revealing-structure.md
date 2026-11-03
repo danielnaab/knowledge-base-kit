@@ -44,4 +44,4 @@ Gains faster navigation, self-documenting structure, clearer handoffs.
 Related:
 - [Evolve KB playbook](../playbooks/evolve-kb.md) - navigation pain triggers
 - [Linking policy](linking.md)
-- [Exploration: detailed examples](../../notes/2026-01-11-intent-revealing-structure.md)
+- [Exploration: detailed examples](https://github.com/danielnaab/meta-knowledge-base/blob/main/notes/2026-01-11-intent-revealing-structure.md)

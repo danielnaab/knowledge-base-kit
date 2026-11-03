@@ -5,21 +5,40 @@ status: stable
 
 Guidance for knowledge bases that import or depend on others.
 
-## Declare dependencies
+## Take a dependency
 
-In knowledge-base.yaml:
+Graft it: the dependency's export, at a pinned commit, committed under `vendor/<name>/`. Every
+clone, worktree, agent and the forge's web view then reads the same text with nothing to set up.
+See [graft](https://github.com/danielnaab/graft/tree/v2) for the flake inputs; in short:
+
+```nix
+inputs.meta-knowledge-base = { url = "github:danielnaab/meta-knowledge-base/v1.0.0"; flake = false; };
+outputs = inputs: inputs.graft.lib.mkGraft { inherit inputs; deps = [ "meta-knowledge-base" ]; };
+```
+
+`nix run .#graft` writes `vendor/`; `nix flake check` fails if it drifts from `flake.lock`.
+Never edit `vendor/`: it is overwritten on the next graft.
+
+Then say what the dependency is to you, in knowledge-base.yaml:
 
 ```yaml
 imports:
   - kind: local
-    path: ../meta-knowledge-base
+    path: vendor/meta-knowledge-base
     relationship: "foundational"
 
   - kind: local
-    path: ../project-specs
+    path: vendor/project-specs
     relationship: "canonical-source"
     sync_policy: "interpret"
 ```
+
+## Provide one
+
+What you export is your decision, made in `.gitattributes`: paths marked `export-ignore` stay
+out of what others graft. Always exclude your own `vendor/`: consumers take your content, never
+your dependencies, so every repo has one level of `vendor/` and one copy of each dependency.
+Tag releases (`v1.0.0`) so consumers pin something readable, and say what changed in a CHANGELOG.
 
 ## Relationship types
 
@@ -48,8 +67,8 @@ imports:
 
 **Extend policy** (for foundational):
 - Mark inherited vs added content
-- Track version of canonical KB
-- Update when foundation changes
+- The pinned version is in `flake.lock` and `vendor/README.md`
+- Update when foundation changes: `nix flake update <name>`, `nix run .#graft`, review the diff
 
 **Reference policy** (for peer):
 - Standard markdown links
@@ -57,16 +76,16 @@ imports:
 
 ## Cross-repository provenance
 
-Use relative paths:
+Link into the grafted copy with relative paths, so links resolve at the pinned version:
 ```markdown
-[canonical architecture](../canonical-kb/docs/architecture.md)
+[canonical architecture](../vendor/canonical-kb/docs/architecture.md)
 ```
 
 Declare in knowledge-base.yaml:
 ```yaml
 sources:
   canonical:
-    - path: "../canonical-kb/docs/spec.md"
+    - path: "vendor/canonical-kb/docs/spec.md"
       note: "Specifications are canonical"
   interpretation:
     - path: "docs/guides/**"
@@ -80,6 +99,9 @@ Avoid:
 - Copy-paste without attribution
 - Unclear authority (can't tell which KB is authoritative)
 - No sync tracking
+- Links to a sibling checkout (`../other-kb/`) or to another repo's `main`: they resolve to
+  whatever is there today, or nothing
+- Editing a grafted copy in `vendor/`
 - Premature separation (split before clear boundary)
 
 Related:

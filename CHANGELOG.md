@@ -2,6 +2,20 @@
 
 ## [Unreleased]
 
+## v1.0.0 - 2026-11-02
+
+The first tagged release: what repos graft (https://github.com/danielnaab/graft/tree/v2).
+
+### Changed
+- **Exports**: `.gitattributes` defines what this repo exports: README, CHANGELOG, `docs/`,
+  `adapters/` and `examples/`. `AGENTS.md`, `knowledge-base.yaml` and `notes/` are this repo's own.
+- **Manage KB dependencies playbook**: take a dependency by grafting its export at a pinned
+  commit into `vendor/`, link into the grafted copy, and provide one by declaring `export-ignore`
+  rules and tagging releases.
+
+### Removed
+- `graft.yaml` here and in `examples/meal-planner/`: graft v1 is retired.
+
 ### Added
 - **Intent-revealing structure policy** - File and directory naming that communicates purpose
   - Names reveal content without opening files

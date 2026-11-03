@@ -1,3 +1,0 @@
-apiVersion: graft/v0
-deps:
-  meta-knowledge-base: "https://github.com/danielnaab/meta-knowledge-base.git#main"

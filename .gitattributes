@@ -1,0 +1,7 @@
+# What this repository exports. Repos that graft it (https://github.com/danielnaab/graft/tree/v2)
+# get the tagged release minus the paths below: README, CHANGELOG, docs/, adapters/, examples/.
+/.gitattributes      export-ignore
+/.gitignore          export-ignore
+/AGENTS.md           export-ignore
+/knowledge-base.yaml export-ignore
+/notes/              export-ignore
