@@ -2,6 +2,19 @@
 
 ## [Unreleased]
 
+Planned as v1.1.0. Additive: existing knowledge bases need no changes.
+
+### Added
+- **Provenance policy**: structured provenance. A `sources` frontmatter list, with footnotes keyed
+  to its `id`s, counts the same as a `## Sources` section. It follows OKF v0.2 (§5.1).
+- **Temporal layers policy**: two optional layers. Raw sources are kept as captured and never
+  edited; historical records are dated, written once, and corrected with a dated correction.
+  Neither carries a lifecycle `status`; the path marks them.
+
+### Changed
+- **Lifecycle policy**: raw sources and historical records carry no status.
+- **README**: the temporal layers summary names the two optional layers.
+
 ## v1.0.1 - 2026-11-03
 
 ### Changed
