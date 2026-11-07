@@ -2,7 +2,9 @@
 
 ## [Unreleased]
 
-Planned as v1.1.0. Additive: existing knowledge bases need no changes.
+## v1.1.0 - 2026-11-06
+
+Additive: existing knowledge bases need no changes.
 
 ### Added
 - **Provenance policy**: structured provenance. A `sources` frontmatter list, with footnotes keyed
