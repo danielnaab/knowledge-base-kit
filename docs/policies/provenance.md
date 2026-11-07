@@ -15,9 +15,7 @@ When a claim matters, show where it came from.
 - file + stable symbol name
 
 ## Where provenance should appear
-Use a dedicated `## Sources` section whenever possible.
-
-## Example Sources section
+Use a dedicated `## Sources` section whenever possible:
 
 ```markdown
 ## Sources
@@ -26,26 +24,12 @@ Use a dedicated `## Sources` section whenever possible.
 ```
 
 ## Structured provenance (optional)
-
-Where tools or agents read provenance, it may live in frontmatter instead. It counts the same as a
-`## Sources` section; use one or the other in a document, not both.
-
+Where tools read provenance, frontmatter may replace the section. Use one or the other, not both.
 - `sources` lists what the document derives from. Each entry has a `resource` (URL or path) and,
-  when the body cites it, a stable `id`.
-- A claim cites a source with a footnote labelled with that `id`, so citations survive reordering.
+  when cited, a stable `id`.
+- A claim cites a source with a footnote labelled with that `id`, such as `[^rfc2119]`.
 - This is [OKF v0.2](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md)
-  provenance (§5.1); it can be adopted without the rest of OKF.
-
-```markdown
----
-sources:
-  - id: rfc2119
-    resource: https://datatracker.ietf.org/doc/html/rfc2119
----
-Requirement keywords follow RFC 2119.[^rfc2119]
-
-[^rfc2119]: RFC 2119
-```
+  provenance (§5.1), usable without the rest of OKF.
 
 Related:
 - [Authority policy](authority.md)

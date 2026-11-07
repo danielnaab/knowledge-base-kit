@@ -13,6 +13,7 @@ Planned as v1.1.0. Additive: existing knowledge bases need no changes.
 
 ### Changed
 - **Lifecycle policy**: raw sources and historical records carry no status.
+- **Temporal layers policy**: the layers are one table; the content of the existing three is unchanged.
 - **README**: the temporal layers summary names the two optional layers.
 
 ## v1.0.1 - 2026-11-03
