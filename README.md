@@ -1,6 +1,8 @@
-# meta-knowledge-base
+# knowledge-base-kit
 
-Operating instructions for evolving knowledge bases with human and agent collaboration.
+Conventions for evolving knowledge bases with human and agent collaboration, and the checker that enforces
+them. Formerly meta-knowledge-base (the conventions, v1.x) and knowledge-base-integrity (the checker, v0.x),
+merged in v2.0.0 so that a rule and its enforcement change together.
 
 ## What this system standardizes
 
@@ -105,12 +107,32 @@ Step-by-step guidance:
 
 See [examples/](examples/) for complete knowledge bases demonstrating each strategy.
 
+## The checker
+
+Three tools in `src/` (Python standard library only) check a knowledge base against these conventions:
+
+| Tool | Checks |
+|------|--------|
+| `link-validator` | Internal Markdown links and their heading anchors exist |
+| `kb-linter` | Frontmatter `status` against the [lifecycle policy](docs/policies/lifecycle.md), provenance (a `## Sources` section or `sources` frontmatter), OKF conformance |
+| `backlink-scanner` | `# spec:` annotations point at real specs, and specs have implementations ([living specifications](https://github.com/danielnaab/living-specifications)) |
+
+How to configure and run them: [docs/tools.md](docs/tools.md). Each tool's behavior is specified in
+[specs/](https://github.com/danielnaab/knowledge-base-kit/tree/main/specs).
+
 ## Using this in your repository
 
-Add a `knowledge-base.yaml` at your repo root:
+Graft it ([graft](https://github.com/danielnaab/graft/tree/v2)): the export (README, CHANGELOG, `docs/`,
+`adapters/`, `examples/` and the checker's `src/`) lands at a pinned tag in your scions directory.
+
+```nix
+inputs.knowledge-base-kit = { url = "github:danielnaab/knowledge-base-kit/v2.0.0"; flake = false; };
+```
+
+Then add a `knowledge-base.yaml` at your repo root. `apiVersion: kb/v1` is the only value; nothing reads it yet.
 
 ```yaml
-apiVersion: meta-kb/v1
+apiVersion: kb/v1
 name: your-project
 
 entrypoints:
@@ -119,7 +141,36 @@ entrypoints:
 
 imports:
   - kind: local
-    path: ../meta-knowledge-base
+    path: scions/knowledge-base-kit
+    relationship: foundational
+```
+
+To run the checker, read it from the same input: `PYTHONPATH=${inputs.knowledge-base-kit}/src python3 -m
+link_validator .` (and `kb_linter`, `backlink_scanner`). [notebook-kit](https://github.com/danielnaab/notebook-kit)
+wires this up as `just check-kb`. Don't add a second input for the same repo (a `git+https` one, say): Nix shares
+one fetch cache entry per commit between them, so one of the two gets the wrong tree.
+
+## Architecture
+
+```
+living-specifications (spec-writing methodology)
+        ↓ the backlink scanner implements its `# spec:` annotation format
+knowledge-base-kit (this repo: conventions, and the checker that enforces them)
+        ↓
+your knowledge base (follows the conventions, runs the checker)
+```
+
+The kit grafts living-specifications into `scions/` (not exported). living-specifications follows these
+conventions as a knowledge base: a conformance edge, not a design dependency (see
+[Managing KB dependencies](docs/playbooks/manage-kb-dependencies.md#dependencies-are-between-exports)).
+
+## Developing the checker
+
+```bash
+uv sync
+uv run pytest
+uv run ruff check src tests
+uv run link-validator && uv run kb-linter && uv run backlink-scanner   # dogfood on this repo
 ```
 
 ## Navigation
@@ -129,3 +180,4 @@ imports:
 - [Playbooks](docs/playbooks/README.md)
 - [Examples](examples/README.md)
 - [Adapters](adapters/claude-code/README.md)
+- [The checker](docs/tools.md)

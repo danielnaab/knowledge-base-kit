@@ -1,4 +1,4 @@
-"""Shared CLI runner for knowledge-base-integrity tools.
+"""Shared CLI runner for the knowledge-base-kit's tools.
 
 Provides the common pattern: parse args, run tool, serialize, print JSON, exit.
 """

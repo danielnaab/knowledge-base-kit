@@ -2,21 +2,30 @@
 status: working
 ---
 
-# Knowledge Base Integrity Documentation
+# The checker
 
-Documentation for using and extending the KB integrity tools.
+How to run and configure the kit's checker: three tools in `src/` that check a knowledge base against the
+conventions in this kit.
 
 ## Quick Start
 
-```bash
-# Install
-uv pip install -e .
+From a clone of this repo:
 
-# Run tools
+```bash
+uv pip install -e .
 backlink-scanner /path/to/kb
 kb-linter /path/to/kb
 link-validator /path/to/kb
 ```
+
+From a repo that grafts the kit (no install; Python 3.11+ standard library only):
+
+```bash
+PYTHONPATH=scions/knowledge-base-kit/src python3 -m link_validator .
+PYTHONPATH=scions/knowledge-base-kit/src python3 -m kb_linter .
+```
+
+Exit codes: 0 no findings (or `--report-only`), 1 findings, 2 a configuration error. Output is JSON.
 
 ## Tools Overview
 
@@ -74,5 +83,5 @@ a `resource` counts as provenance.
 
 ## Sources
 
-- [Specifications](../specs/) — Behavioral contracts for each tool
-- [tool-cli: configuration and path scopes](../specs/tool-cli.md#configuration)
+- [Specifications](https://github.com/danielnaab/knowledge-base-kit/tree/main/specs) — behavioral contracts for each tool
+- [tool-cli: configuration and path scopes](https://github.com/danielnaab/knowledge-base-kit/blob/main/specs/tool-cli.md#configuration)

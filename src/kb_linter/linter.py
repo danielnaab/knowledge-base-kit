@@ -29,7 +29,7 @@ COMMENT_LINE_PATTERN = re.compile(r"^<!--.*-->$")
 FENCE_PATTERN = re.compile(r"^(`{3,}|~{3,})")
 LOG_DATE_HEADING_PATTERN = re.compile(r"^## \d{4}-\d{2}-\d{2}$")
 
-# Always allowed: marks an always-current document (meta-knowledge-base temporal-layers policy).
+# Always allowed: marks an always-current document (docs/policies/lifecycle.md, temporal-layers.md).
 LIVING_STATUS = "living"
 
 

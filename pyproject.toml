@@ -1,8 +1,8 @@
 [project]
-name = "knowledge-base-integrity"
-version = "0.4.0"
-description = "Tooling for validating and enforcing knowledge base conventions"
-readme = "README.md"
+name = "knowledge-base-kit"
+version = "2.0.0"
+description = "Knowledge base conventions, and the checker that enforces them"
+readme = "docs/tools.md"
 requires-python = ">=3.11"
 license = {text = "MIT"}
 authors = [

@@ -1,11 +1,10 @@
 {
-  description = "knowledge-base-integrity: link validation, linting and backlink scanning for a knowledge base";
+  description = "knowledge-base-kit: knowledge base conventions, and the checker that enforces them (link validation, linting, backlink scanning)";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
-    graft = { url = "github:danielnaab/graft/v2.6.0"; inputs.nixpkgs.follows = "nixpkgs"; };
-    meta-knowledge-base = { url = "github:danielnaab/meta-knowledge-base/v1.1.0"; flake = false; };
-    living-specifications = { url = "github:danielnaab/living-specifications/v1.0.1"; flake = false; };
+    graft = { url = "github:danielnaab/graft/v2.9.0"; inputs.nixpkgs.follows = "nixpkgs"; };
+    living-specifications = { url = "github:danielnaab/living-specifications/v1.0.2"; flake = false; };
   };
 
   outputs = { nixpkgs, graft, ... }@inputs:

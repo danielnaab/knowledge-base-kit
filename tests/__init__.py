@@ -1,1 +1,1 @@
-"""Tests for knowledge-base-integrity tools."""
+"""Tests for the knowledge-base-kit's tools."""

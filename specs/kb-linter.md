@@ -94,7 +94,7 @@ Then no invalid-status violation is reported
 Given a frontmatter status of living
 When the file is checked
 Then no invalid-status violation is reported, whatever rules.lifecycle.statuses lists
-  (living marks an always-current document, per the meta-knowledge-base temporal-layers policy)
+  (living marks an always-current document; the lifecycle policy allows it in every KB)
   And statuses in rules.checks.lifecycle.extraStatuses are accepted the same way
 ```
 
@@ -291,7 +291,10 @@ Example output:
 - 2026-11-05: Statuses are read with the shared subset parser. The old regex accepted only JSON-style lists, so `statuses: [draft, working]` produced an empty set and the status check silently never ran. An unreadable statuses value now exits 2.
 - 2026-11-05: `living` is always an allowed status. The meta-knowledge-base temporal-layers policy prescribes `status: living` for always-current documents, while its lifecycle policy lists only draft/working/stable/deprecated, so a KB following both was flagged. The tool follows the policy that names the value instead of making each KB list it. Other extra statuses go in `rules.checks.lifecycle.extraStatuses`.
 - 2026-11-05: The Sources heading matches `## Sources` with optional trailing words. `## Sources and verification` is a real Sources section; the exact-match rule failed it. A different heading level or a longer word (`## Sourcesx`) still fails.
-- 2026-11-06: `sources` frontmatter counts as provenance in every KB, not only OKF bundles. The meta-knowledge-base v1.1.0 provenance policy makes it equivalent to a Sources section. A present but malformed list is reported as invalid rather than missing, so the finding points at the entry to fix.
+- 2026-11-11: The lifecycle policy now states that `living` is always valid, so the check above implements a
+  rule the policy owns instead of settling a conflict between two policies. Checker and conventions are one repo
+  (knowledge-base-kit), so a rule like this changes in the policy and the code together.
+- 2026-11-06: `sources` frontmatter counts as provenance in every KB, not only OKF bundles. The kit's provenance policy (v1.1.0) makes it equivalent to a Sources section. A present but malformed list is reported as invalid rather than missing, so the finding points at the entry to fix.
 - 2026-11-06: OKF conformance is checked here, not by OKF Wiki's `okf` CLI: this tool already gates every workspace, honours `.okfignore`, and keeps one finding format. The checks are OKF v0.2 §11: frontmatter with a non-empty `type` on every note, and the §8 and §9 shapes for `index.md` and `log.md`. Optional families (`generated`, `verified`, `stale_after`) are not validated, since OKF forbids rejecting a note for them.
 - 2026-11-06: An index body is headings and entries only. Workspace indexes are generated, so prose in one means a hand edit the generator will drop; HTML comment lines are allowed for a generator's marker.
 
@@ -300,5 +303,5 @@ Example output:
 - Living Specifications Principles — #2 (enforcement), #14 (fight tribal knowledge)
 - Living Specifications Format — "Status is non-negotiable"
 - [OKF v0.2 specification](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md) — §4.1 frontmatter, §5.1 sources, §8 index files, §9 log files, §11 conformance
-- [Meta-KB provenance policy](../scions/meta-knowledge-base/docs/policies/provenance.md) — structured provenance (v1.1.0)
+- [Provenance policy](../docs/policies/provenance.md) — structured provenance (v1.1.0)
 - [Backlink Scanner](backlink-scanner.md) — sibling tool, structural patterns to follow

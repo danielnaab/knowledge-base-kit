@@ -5,7 +5,7 @@ last-verified: 2026-11-06
 
 # Spec: tool-cli
 
-Shared CLI runner that enforces consistent interface conventions across all knowledge-base-integrity tools.
+Shared CLI runner that enforces consistent interface conventions across all of the knowledge-base-kit's tools.
 
 ## Intent
 

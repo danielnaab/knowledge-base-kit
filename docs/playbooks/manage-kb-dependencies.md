@@ -12,8 +12,8 @@ clone, worktree, agent and the forge's web view then reads the same text with no
 See [graft](https://github.com/danielnaab/graft/tree/v2) for the flake inputs; in short:
 
 ```nix
-inputs.meta-knowledge-base = { url = "github:danielnaab/meta-knowledge-base/v1.0.0"; flake = false; };
-outputs = inputs: inputs.graft.lib.mkGraft { inherit inputs; deps = [ "meta-knowledge-base" ]; };
+inputs.knowledge-base-kit = { url = "github:danielnaab/knowledge-base-kit/v2.0.0"; flake = false; };
+outputs = inputs: inputs.graft.lib.mkFlake { inherit inputs; };
 ```
 
 `nix run .#graft` writes `scions/`; `nix flake check` fails if it drifts from `flake.lock`.
@@ -24,7 +24,7 @@ Then say what the dependency is to you, in knowledge-base.yaml:
 ```yaml
 imports:
   - kind: local
-    path: scions/meta-knowledge-base
+    path: scions/knowledge-base-kit
     relationship: "foundational"
 
   - kind: local
@@ -40,10 +40,27 @@ out of what others graft. Always exclude your own `scions/`: consumers take your
 your dependencies, so every repo has one level of scions and one copy of each dependency.
 Tag releases (`v1.0.0`) so consumers pin something readable, and say what changed in a CHANGELOG.
 
+Exported files link only to exported files. A link from your README or `docs/` into `scions/`, `specs/` or any
+other export-ignored path works in your repo and breaks in every consumer's copy; link to the dependency by URL
+instead. Files you don't export (AGENTS.md, specs) may link into your `scions/`.
+
+### Dependencies are between exports
+
+A dependency is a design edge only when what you export depends on what another repo exports: your docs build on
+its content, or your code implements its format. Keep those edges free of cycles. Two other kinds of edge are not
+design dependencies, and may point back at a repo that depends on you:
+
+- **Conformance:** every knowledge base follows this kit's conventions for how it is written, this kit included.
+  When the conventions change you may edit your docs to comply, but nothing you export changes in substance.
+- **Upkeep:** a scion you graft only to maintain your own repo (its AGENTS.md links into it), never re-exported.
+
+A cycle of design edges, or a dependency that starts defining what the other repo owns, is the smell to act on.
+Each rule has one owner; a repo that enforces another's rule cites it rather than restating it.
+
 ## Relationship types
 
 **Foundational** - provides patterns you build on
-- Example: meta-knowledge-base
+- Example: knowledge-base-kit
 - Sync: review when major updates occur
 
 **Canonical-source** - source of truth you interpret/implement

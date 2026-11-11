@@ -49,7 +49,13 @@ jobs:
 
       - name: Upgrade, check the result, push it to graft/upgrade
         id: upgrade
-        run: nix run .#graft ci upgrade
+        run: |
+          # graft's flake: at the top, or where the scions README records it (mkFlake's flakeDir).
+          # Bash and git only: the nixos/nix image has no sed.
+          d=$(git grep -h '^<!-- graft flake: .* -->$' -- README.md '*/README.md' || true)
+          d=${d%%$'\n'*} && d=${d#'<!-- graft flake: '} && d=${d%' -->'}
+          flake=.; if [ -n "$d" ]; then flake=path:$PWD/$d; fi
+          nix run "$flake#graft" ci upgrade
 
   # Open the PR (or retitle the open one, which the push updated), saying what changed upstream
   # and whether the checks passed. A fresh job, checked out at the default branch: it runs the
@@ -84,4 +90,10 @@ jobs:
           # on a private repo. A user's token, in the Actions secret GRAFT_PR_TOKEN (set it once for
           # all your repos under Settings > Actions > Secrets), opens the PR as that user.
           PR_TOKEN: ${{ secrets.GRAFT_PR_TOKEN || github.token }}
-        run: nix run .#graft ci pr
+        run: |
+          # graft's flake: at the top, or where the scions README records it (mkFlake's flakeDir).
+          # Bash and git only: the nixos/nix image has no sed.
+          d=$(git grep -h '^<!-- graft flake: .* -->$' -- README.md '*/README.md' || true)
+          d=${d%%$'\n'*} && d=${d#'<!-- graft flake: '} && d=${d%' -->'}
+          flake=.; if [ -n "$d" ]; then flake=path:$PWD/$d; fi
+          nix run "$flake#graft" ci pr

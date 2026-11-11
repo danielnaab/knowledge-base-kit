@@ -1,6 +1,6 @@
 # Meal planner KB (example)
 
-This KB follows the [meta knowledge base](https://github.com/danielnaab/meta-knowledge-base/blob/main/README.md).
+This KB follows the [meta knowledge base](https://github.com/danielnaab/knowledge-base-kit/blob/main/README.md).
 
 ## Canonical sources
 

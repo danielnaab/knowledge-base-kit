@@ -1,6 +1,6 @@
 # Specifications
 
-Living specifications for the knowledge-base-integrity tools. Each spec is a behavioral contract that code in [`src/`](../src/) implements.
+Living specifications for the knowledge-base-kit's checker. Each spec is a behavioral contract that code in [`src/`](../src/) implements.
 
 ## Specs
 

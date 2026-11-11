@@ -7,11 +7,11 @@ entrypoints:
   agent: AGENTS.md
 
 meta:
-  entrypoint: "https://github.com/danielnaab/meta-knowledge-base/blob/main/README.md"
+  entrypoint: "https://github.com/danielnaab/knowledge-base-kit/blob/main/README.md"
 
 imports:
   - kind: git
-    repo: https://github.com/danielnaab/meta-knowledge-base.git
+    repo: https://github.com/danielnaab/knowledge-base-kit.git
     ref: main
     entrypoint: knowledge-base.yaml
 

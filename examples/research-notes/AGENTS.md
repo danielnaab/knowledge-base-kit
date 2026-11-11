@@ -2,7 +2,7 @@
 
 Before making changes, read:
 - [Domain knowledge-base.yaml](knowledge-base.yaml)
-- [Meta knowledge base](https://github.com/danielnaab/meta-knowledge-base/blob/main/README.md)
+- [Meta knowledge base](https://github.com/danielnaab/knowledge-base-kit/blob/main/README.md)
 
 Strategy: **Atomic notes + maps** - many small notes, map-of-content index, lifecycle markers.
 
