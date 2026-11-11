@@ -1,0 +1,85 @@
+{
+  "nodes": {
+    "graft": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1793985600,
+        "narHash": "sha256-0Ya5FPbUsGBmQMt8FJUSgh/aUYz5lWwbTsHzFbOn428=",
+        "owner": "danielnaab",
+        "repo": "graft",
+        "rev": "6dd3001e873f8d3a485fe6261b61f9e43e7128b1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "danielnaab",
+        "ref": "v2.6.0",
+        "repo": "graft",
+        "type": "github"
+      }
+    },
+    "living-specifications": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1793687834,
+        "narHash": "sha256-YaWPOLjO/e61Zx93yCUt5sCQ0fZfkIYBCIjTC3dFoAA=",
+        "owner": "danielnaab",
+        "repo": "living-specifications",
+        "rev": "0a52001a1925f03b7e6ee07bd3bf32ff625761d1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "danielnaab",
+        "ref": "v1.0.1",
+        "repo": "living-specifications",
+        "type": "github"
+      }
+    },
+    "meta-knowledge-base": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1794022011,
+        "narHash": "sha256-WVoRvfpgn6l+stULkuFwZpW8K6K+oPqWpQbcW5NnJzQ=",
+        "owner": "danielnaab",
+        "repo": "meta-knowledge-base",
+        "rev": "8223746e072f3effdc7057e9869e986c02fc55f7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "danielnaab",
+        "ref": "v1.1.0",
+        "repo": "meta-knowledge-base",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1767313136,
+        "narHash": "sha256-16KkgfdYqjaeRGBaYsNrhPRRENs0qzkQVUooNHtoy2w=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "ac62194c3917d5f474c1a844b6fd6da2db95077d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-25.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "graft": "graft",
+        "living-specifications": "living-specifications",
+        "meta-knowledge-base": "meta-knowledge-base",
+        "nixpkgs": "nixpkgs"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
