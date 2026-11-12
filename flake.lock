@@ -2,22 +2,40 @@
   "nodes": {
     "graft": {
       "inputs": {
+        "knowledge-base-kit": "knowledge-base-kit",
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1794330098,
-        "narHash": "sha256-Q0pCesVUeYOsGnOmgYSHYi4Vb+VLMBxGvC5MsKqg6co=",
+        "lastModified": 1794498841,
+        "narHash": "sha256-qVeUF1a6zINtIiHcP/2vT6s6Z+PtP84VHE1RhoxJMdE=",
         "owner": "danielnaab",
         "repo": "graft",
-        "rev": "1ca7006dd1387993923e6db61369f83828ed8f23",
+        "rev": "dddf22330d102a0fedb58640016d80b019ccc635",
         "type": "github"
       },
       "original": {
         "owner": "danielnaab",
-        "ref": "v2.9.0",
+        "ref": "v2.11.0",
         "repo": "graft",
+        "type": "github"
+      }
+    },
+    "knowledge-base-kit": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1794498455,
+        "narHash": "sha256-qMUlgi+5vWSDQjWacNGS3K2brS1v7LsYzAirJGq/fvA=",
+        "owner": "danielnaab",
+        "repo": "knowledge-base-kit",
+        "rev": "348eff0aa27fd519507ba168d440f2854ee54189",
+        "type": "github"
+      },
+      "original": {
+        "owner": "danielnaab",
+        "ref": "v2.1.0",
+        "repo": "knowledge-base-kit",
         "type": "github"
       }
     },

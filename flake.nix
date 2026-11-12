@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
-    graft = { url = "github:danielnaab/graft/v2.9.0"; inputs.nixpkgs.follows = "nixpkgs"; };
+    graft = { url = "github:danielnaab/graft/v2.11.0"; inputs.nixpkgs.follows = "nixpkgs"; };
     living-specifications = { url = "github:danielnaab/living-specifications/v1.0.2"; flake = false; };
   };
 
