@@ -1,5 +1,5 @@
 version = 1
-revision = 5
+revision = 2
 requires-python = ">=3.11"
 
 [[package]]
@@ -114,7 +114,7 @@ wheels = [
 
 [[package]]
 name = "knowledge-base-kit"
-version = "2.0.0"
+version = "2.1.0"
 source = { editable = "." }
 
 [package.dev-dependencies]
