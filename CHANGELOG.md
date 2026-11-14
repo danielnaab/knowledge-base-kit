@@ -2,6 +2,36 @@
 
 ## [Unreleased]
 
+## v2.2.0 - 2026-11-13
+
+For [graft](https://github.com/danielnaab/graft) v2.13.0, which grafts a repository as a git submodule at a
+release tag and lets the repository wire itself into its consumers' flakes. Additive: a repo on graft v2.12 or
+earlier is unaffected.
+
+### Added
+- **`graft.nix`:** a repo that grafts the kit with graft v2.13.0 gets, with no code of its own:
+  - the tools `kb-lint`, `check-links`, `scan-backlinks` and `kb-validate` in `packages.<system>.tools`; each
+    takes the knowledge base's directory (default `.`) and `--report-only`;
+  - `checks.<system>.knowledge-base-kit-kb` (check-links, then kb-lint) when its flake's source has a
+    `knowledge-base.yaml` at the top; none otherwise;
+  - for a sibling scion's `graft.nix`, `scions.knowledge-base-kit.src`, the checker's sources.
+
+### Changed
+- **The kit's own flake** takes its tools from `graft.nix`, so they are defined once: its apps are now named like
+  the tools (`nix run .#kb-lint`, `.#kb-validate`; were `.#lint`, `.#validate`), and `nix flake check` runs the
+  kit's docs through the checker and a test of `graft.nix`. It grafts living-specifications as a git submodule.
+- **Manage KB dependencies playbook, Linking policy, `docs/tools.md`:** grafting is a git submodule at a release
+  tag; consumers read the whole repository, without its own `scions/`. `.gitattributes` still shapes
+  `git archive`, which graft no longer reads.
+
+### Upgrading
+- On graft v2.13.0: `nix run .#graft upgrade knowledge-base-kit`. If your `flake.nix` built tools from
+  `${inputs.knowledge-base-kit}/src` (`PYTHONPATH=…`), delete that wiring: the tools and the check come from the
+  kit's `graft.nix`. A check of your own that ran `link_validator`/`kb_linter` over your repo duplicates
+  `knowledge-base-kit-kb`: delete it or keep it, as you like.
+- If you ran this repo's own apps (`nix run github:danielnaab/knowledge-base-kit#lint`): use `#kb-lint`
+  (`#validate` → `#kb-validate`).
+
 ## v2.1.0 - 2026-11-12
 
 Findings from rewriting graft's docs to these conventions. No checker change.
