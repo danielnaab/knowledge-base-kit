@@ -2,6 +2,13 @@
 
 ## [Unreleased]
 
+## v2.2.1 - 2026-11-14
+
+### Fixed
+- Pins graft v2.13.1 (the kit's flake, the README and the Manage KB dependencies playbook): graft v2.13.0
+  can't be a flake input. The kit's `flake.lock` had still locked graft v2.12.0 and a living-specifications
+  input; it now locks graft v2.13.1 only.
+
 ## v2.2.0 - 2026-11-13
 
 For [graft](https://github.com/danielnaab/graft) v2.13.0, which grafts a repository as a git submodule at a

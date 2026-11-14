@@ -5,7 +5,7 @@
   inputs.self.submodules = true;
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
-    graft = { url = "github:danielnaab/graft/v2.13.0"; inputs.nixpkgs.follows = "nixpkgs"; };
+    graft = { url = "github:danielnaab/graft/v2.13.1"; inputs.nixpkgs.follows = "nixpkgs"; };
   };
 
   outputs = { self, graft, ... }@inputs:

@@ -122,11 +122,11 @@ How to configure and run them: [docs/tools.md](docs/tools.md). Each tool's behav
 
 ## Using this in your repository
 
-Graft it with [graft](https://github.com/danielnaab/graft) v2.13.0 or later: the kit becomes a git submodule in
+Graft it with [graft](https://github.com/danielnaab/graft) v2.13.1 or later: the kit becomes a git submodule in
 your scions directory, at a release tag.
 
 ```bash
-nix run github:danielnaab/graft/v2.13.0 -- add https://github.com/danielnaab/knowledge-base-kit
+nix run github:danielnaab/graft/v2.13.1 -- add https://github.com/danielnaab/knowledge-base-kit
 ```
 
 Its [graft.nix](graft.nix) wires the checker into your flake with no code of yours: the tools `kb-lint`,

@@ -9,17 +9,17 @@ Guidance for knowledge bases that import or depend on others.
 
 Graft it: the dependency's repository, as a git submodule at a release tag under `scions/<name>/` (a *scion*
 is what's grafted on). Every clone, worktree and agent reads the same text at the same tag. See
-[graft](https://github.com/danielnaab/graft) (v2.13.0 or later); in short:
+[graft](https://github.com/danielnaab/graft) (v2.13.1 or later); in short:
 
 ```bash
-nix run github:danielnaab/graft/v2.13.0 -- add https://github.com/danielnaab/knowledge-base-kit
+nix run github:danielnaab/graft/v2.13.1 -- add https://github.com/danielnaab/knowledge-base-kit
 ```
 
 with a `flake.nix` that names no dependency:
 
 ```nix
 inputs.self.submodules = true;
-inputs.graft.url = "github:danielnaab/graft/v2.13.0";
+inputs.graft.url = "github:danielnaab/graft/v2.13.1";
 outputs = inputs: inputs.graft.lib.mkFlake { inherit inputs; };
 ```
 
