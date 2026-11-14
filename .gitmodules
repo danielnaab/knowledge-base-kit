@@ -1,0 +1,3 @@
+[submodule "scions/living-specifications"]
+	path = scions/living-specifications
+	url = https://github.com/danielnaab/living-specifications
