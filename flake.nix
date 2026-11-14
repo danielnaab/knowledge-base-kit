@@ -1,41 +1,49 @@
 {
   description = "knowledge-base-kit: knowledge base conventions, and the checker that enforces them (link validation, linting, backlink scanning)";
 
+  # scions/living-specifications is a git submodule (graft v2.13.0)
+  inputs.self.submodules = true;
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
-    graft = { url = "github:danielnaab/graft/v2.12.0"; inputs.nixpkgs.follows = "nixpkgs"; };
-    living-specifications = { url = "github:danielnaab/living-specifications/v1.0.2"; flake = false; };
+    graft = { url = "github:danielnaab/graft/v2.13.0"; inputs.nixpkgs.follows = "nixpkgs"; };
   };
 
-  outputs = { nixpkgs, graft, ... }@inputs:
-    let
-      systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
-
-      # `nix run .#<name>` from a knowledge base's root; a repo that takes this flake as an input
-      # re-exports the ones it wants.
-      tool = pkgs: name: description: text: {
-        type = "app";
-        meta = { inherit description; };
-        program = nixpkgs.lib.getExe (pkgs.writeShellApplication {
-          inherit name;
-          runtimeInputs = [ pkgs.python3 ];
-          text = ''
-            export PYTHONPATH=${./src} PYTHONDONTWRITEBYTECODE=1
-            ${text}
-          '';
-        });
-      };
-
-      tools = pkgs: {
-        lint = tool pkgs "lint" "Check frontmatter status and provenance" "python3 -m kb_linter .";
-        check-links = tool pkgs "check-links" "Find broken internal markdown links" "python3 -m link_validator .";
-        scan-backlinks = tool pkgs "scan-backlinks" "Trace specs to their implementations" "python3 -m backlink_scanner .";
-        validate = tool pkgs "validate" "Check links, then report lint findings"
-          "python3 -m link_validator . && python3 -m kb_linter --report-only .";
-      };
-    in
+  outputs = { self, graft, ... }@inputs:
     graft.lib.mkFlake {
       inherit inputs;
-      outputs.apps = nixpkgs.lib.genAttrs systems (system: tools nixpkgs.legacyPackages.${system});
+      # The kit's tools and check come from graft.nix, exactly as a repo that grafts the kit gets them, so
+      # they are defined once: packages.<system>.tools, an app per tool (`nix run .#kb-lint` from a knowledge
+      # base's root), and checks.<system>.kb, the kit's own docs against its conventions.
+      perSystem = { pkgs, lib, system, scions, ... }:
+        let
+          kit = consumer: import ./graft.nix { inherit pkgs lib system scions consumer; scion = self; };
+          own = kit self;
+          app = drv: { type = "app"; program = lib.getExe drv; meta.description = drv.meta.description; };
+        in
+        {
+          inherit (own) tools;
+          apps = lib.mapAttrs (_: app) own.tools;
+          checks = own.checks // {
+            # graft.nix's contract: the four tools, and a check only where there is a knowledge-base.yaml
+            graft-nix =
+              let bare = kit ./src; in
+              assert lib.assertMsg (lib.attrNames own.tools == [ "check-links" "kb-lint" "kb-validate" "scan-backlinks" ])
+                "graft.nix: tools are ${toString (lib.attrNames own.tools)}";
+              assert lib.assertMsg (lib.attrNames own.checks == [ "kb" ]) "graft.nix: a knowledge base gets the kb check";
+              assert lib.assertMsg (bare.checks == { }) "graft.nix: a repo without knowledge-base.yaml gets no check";
+              pkgs.runCommand "graft-nix-test" { nativeBuildInputs = lib.attrValues own.tools; } ''
+                mkdir -p kb/docs && cd kb
+                printf 'apiVersion: kb/v1\nname: t\n' > knowledge-base.yaml
+                printf -- '---\nstatus: draft\n---\n# A\n\n[gone](missing.md)\n' > docs/a.md
+                if check-links > links.json; then echo "check-links passed a broken link"; exit 1; fi
+                grep -q '"broken": 1' links.json
+                check-links --report-only . > /dev/null
+                if kb-validate . > /dev/null; then echo "kb-validate passed a broken link"; exit 1; fi
+                kb-lint --report-only > /dev/null
+                scan-backlinks > /dev/null
+                touch $out
+              '';
+          };
+        };
     };
 }
