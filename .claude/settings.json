@@ -2,7 +2,9 @@
   "permissions": {
     "deny": [
       "Edit(/secrets/**)",
-      "Edit(/credentials/**)",
+      "Edit(/credentials/**)"
+    ],
+    "ask": [
       "Edit(/scions/**)"
     ]
   }
