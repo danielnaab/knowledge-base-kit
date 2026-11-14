@@ -122,12 +122,17 @@ How to configure and run them: [docs/tools.md](docs/tools.md). Each tool's behav
 
 ## Using this in your repository
 
-Graft it ([graft](https://github.com/danielnaab/graft/tree/v2)): the export (README, CHANGELOG, `docs/`,
-`adapters/`, `examples/` and the checker's `src/`) lands at a pinned tag in your scions directory.
+Graft it with [graft](https://github.com/danielnaab/graft) v2.13.0 or later: the kit becomes a git submodule in
+your scions directory, at a release tag.
 
-```nix
-inputs.knowledge-base-kit = { url = "github:danielnaab/knowledge-base-kit/v2.1.0"; flake = false; };
+```bash
+nix run github:danielnaab/graft/v2.13.0 -- add https://github.com/danielnaab/knowledge-base-kit
 ```
+
+Its [graft.nix](graft.nix) wires the checker into your flake with no code of yours: the tools `kb-lint`,
+`check-links`, `scan-backlinks` and `kb-validate` in `packages.<system>.tools`, and a `nix flake check` check
+(`knowledge-base-kit-kb`: links, then lint) when your repo has a `knowledge-base.yaml` at the top of its
+flake's source.
 
 Then add a `knowledge-base.yaml` at your repo root. `apiVersion: kb/v1` is the only value; nothing reads it yet.
 
@@ -145,10 +150,9 @@ imports:
     relationship: foundational
 ```
 
-To run the checker, read it from the same input: `PYTHONPATH=${inputs.knowledge-base-kit}/src python3 -m
-link_validator .` (and `kb_linter`, `backlink_scanner`). [notebook-kit](https://github.com/danielnaab/notebook-kit)
-wires this up as `just check-kb`. Don't add a second input for the same repo (a `git+https` one, say): Nix shares
-one fetch cache entry per commit between them, so one of the two gets the wrong tree.
+To run the checker: `nix build .#tools && result/bin/check-links`, or without Nix
+`PYTHONPATH=scions/knowledge-base-kit/src python3 -B -m link_validator .` ([docs/tools.md](docs/tools.md)).
+[notebook-kit](https://github.com/danielnaab/notebook-kit) wires this up as `just check-kb`.
 
 ## Architecture
 
@@ -160,7 +164,7 @@ knowledge-base-kit (this repo: conventions, and the checker that enforces them)
 your knowledge base (follows the conventions, runs the checker)
 ```
 
-The kit grafts living-specifications into `scions/` (not exported). living-specifications follows these
+The kit grafts living-specifications into `scions/` (a git submodule; consumers' clones don't fill it). living-specifications follows these
 conventions as a knowledge base: a conformance edge, not a design dependency (see
 [Managing KB dependencies](docs/playbooks/manage-kb-dependencies.md#dependencies-are-between-exports)).
 

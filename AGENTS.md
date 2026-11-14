@@ -22,8 +22,9 @@ that enforces them (`src/`, specified in `specs/`).
 4. **Write boundaries**: check `rules.writes` in knowledge-base.yaml before editing
 5. **One owner per rule**: a convention changes in `docs/` and the checker together. The checker enforces rules;
    it doesn't define them. Its specs cite the policy each check implements.
-6. **Exports**: README, CHANGELOG, `docs/`, `adapters/`, `examples/` and `src/` are what consumers graft
-   (`.gitattributes`). Those files link only to exported files; use GitHub URLs for `specs/`.
+6. **What consumers get**: the whole repository at a release tag, as a git submodule (graft v2.13.0), without
+   its own `scions/`; [graft.nix](graft.nix) wires the checker's tools and check into their flake. Files they
+   read link by URL into `scions/` ([Linking policy](docs/policies/linking.md#exported-files)).
 
 ## Agent workflow
 
@@ -32,13 +33,15 @@ Use **Plan → Patch → Verify** (see [Agent workflow playbook](docs/playbooks/
 1. **Plan**: state intent, files to touch, uncertainties
 2. **Patch**: smallest diffs that achieve the goal. For the checker: spec first, then a failing test, then code.
 3. **Verify**: `uv run pytest`, `uv run ruff check src tests`, then dogfood: `uv run link-validator`,
-   `uv run kb-linter`, `uv run backlink-scanner`; `nix flake check` for graft's check.
+   `uv run kb-linter`, `uv run backlink-scanner`; `nix flake check` for the tools, `graft.nix`'s contract test
+   and the kit's own docs (`checks.<system>.kb`).
 
 ## Write boundaries
 
 Agents may edit `docs/**`, `notes/**`, `examples/**`, `specs/**`, `src/**`, `tests/**`.
-Ask before editing `knowledge-base.yaml` and root files. Never edit `scions/` (graft overwrites it; enforced for
-Claude Code by `.claude/settings.json`), `secrets/**` or `credentials/**`.
+Ask before editing `knowledge-base.yaml` and root files. Never edit `scions/` (git submodules at release tags:
+fix living-specifications in its own repository, release it, then `nix run .#graft upgrade`; enforced for Claude
+Code by `.claude/settings.json`), `secrets/**` or `credentials/**`.
 
 ## Checker architecture
 

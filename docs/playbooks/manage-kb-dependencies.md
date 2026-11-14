@@ -7,17 +7,25 @@ Guidance for knowledge bases that import or depend on others.
 
 ## Take a dependency
 
-Graft it: the dependency's export, at a pinned commit, committed under `scions/<name>/` (a *scion* is what's grafted on). Every
-clone, worktree, agent and the forge's web view then reads the same text with nothing to set up.
-See [graft](https://github.com/danielnaab/graft/tree/v2) for the flake inputs; in short:
+Graft it: the dependency's repository, as a git submodule at a release tag under `scions/<name>/` (a *scion*
+is what's grafted on). Every clone, worktree and agent reads the same text at the same tag. See
+[graft](https://github.com/danielnaab/graft) (v2.13.0 or later); in short:
+
+```bash
+nix run github:danielnaab/graft/v2.13.0 -- add https://github.com/danielnaab/knowledge-base-kit
+```
+
+with a `flake.nix` that names no dependency:
 
 ```nix
-inputs.knowledge-base-kit = { url = "github:danielnaab/knowledge-base-kit/v2.1.0"; flake = false; };
+inputs.self.submodules = true;
+inputs.graft.url = "github:danielnaab/graft/v2.13.0";
 outputs = inputs: inputs.graft.lib.mkFlake { inherit inputs; };
 ```
 
-`nix run .#graft` writes `scions/`; `nix flake check` fails if it drifts from `flake.lock`.
-Never edit `scions/`: it is overwritten on the next graft.
+A fresh clone's `scions/` folders are empty until `git submodule update --init`. `nix run .#graft check` fails
+while a scion has uncommitted edits or sits off a release tag. Fix a dependency in its own repository and
+release it; then `nix run .#graft upgrade NAME`.
 
 Then say what the dependency is to you, in knowledge-base.yaml:
 
@@ -35,10 +43,12 @@ imports:
 
 ## Provide one
 
-What you export is your decision, made in `.gitattributes`: paths marked `export-ignore` stay
-out of what others graft. Always exclude your own `scions/`: consumers take your content, never
-your dependencies, so every repo has one level of scions and one copy of each dependency.
-Tag releases (`v1.0.0`) so consumers pin something readable, and say what changed in a CHANGELOG.
+Consumers graft your whole repository at a release tag. They do not get your own `scions/`: git does not fill
+a submodule's submodules, so every repo works with one level of scions and one copy of each dependency (Nix
+does fetch them when it evaluates a consumer's flake, so graft only what your consumers can read).
+Tag releases (`v1.0.0`) so consumers pin something readable, and say what changed in a CHANGELOG. To give
+consumers tools or checks, add a `graft.nix` (graft's "Write a graft.nix" guide; this kit's
+[graft.nix](https://github.com/danielnaab/knowledge-base-kit/blob/main/graft.nix) is an example).
 
 Exported files link only to exported files ([Linking policy](../policies/linking.md#exported-files)).
 
@@ -82,9 +92,9 @@ Each rule has one owner; a repo that enforces another's rule cites it rather tha
 
 **Extend policy** (for foundational):
 - Mark inherited vs added content
-- The pinned version is in `flake.lock` and `scions/README.md`
+- The pinned version is the submodule's commit, at a release tag: `nix run .#graft outdated`
 - Update when foundation changes: `nix run .#graft changelog`, then `nix run .#graft upgrade`, then review
-  the diff of `scions/`
+  the provider's changes (`git diff --submodule=log`)
 
 **Reference policy** (for peer):
 - Standard markdown links
@@ -92,7 +102,7 @@ Each rule has one owner; a repo that enforces another's rule cites it rather tha
 
 ## Cross-repository provenance
 
-Link into the grafted copy with relative paths, so links resolve at the pinned version:
+Link into the scion with relative paths, so links resolve at the pinned version:
 ```markdown
 [canonical architecture](../scions/canonical-kb/docs/architecture.md)
 ```
@@ -117,7 +127,7 @@ Avoid:
 - No sync tracking
 - Links to a sibling checkout (`../other-kb/`) or to another repo's `main`: they resolve to
   whatever is there today, or nothing
-- Editing a grafted copy in `scions/`
+- Editing a scion in place and committing it off a release tag
 - Premature separation (split before clear boundary)
 
 Related:

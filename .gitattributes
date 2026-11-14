@@ -1,6 +1,6 @@
-# What this repository exports. Repos that graft it (https://github.com/danielnaab/graft/tree/v2)
-# get the tagged release minus the paths below: README, CHANGELOG, docs/, adapters/, examples/, and
-# src/ (the checker, read by consumers as ${inputs.knowledge-base-kit}/src).
+# What `git archive` exports. graft v2.13.0 and later read the whole repository (a git submodule at a release
+# tag) and ignore these lines; they stay for `git archive` users: README, CHANGELOG, docs/, adapters/,
+# examples/, and src/ (the checker).
 /.gitattributes      export-ignore
 /.gitignore          export-ignore
 /AGENTS.md           export-ignore
