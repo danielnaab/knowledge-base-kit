@@ -26,7 +26,7 @@
           checks = own.checks // {
             # graft.nix's contract: the four tools, and a check only where there is a knowledge-base.yaml
             graft-nix =
-              let bare = kit ./src; in
+              let bare = kit "${self}/src"; in  # a subpath of self, not a fresh store copy: valid under --no-build
               assert lib.assertMsg (lib.attrNames own.tools == [ "check-links" "kb-lint" "kb-validate" "scan-backlinks" ])
                 "graft.nix: tools are ${toString (lib.attrNames own.tools)}";
               assert lib.assertMsg (lib.attrNames own.checks == [ "kb" ]) "graft.nix: a knowledge base gets the kb check";

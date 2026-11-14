@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Fixed
+- **The kit's own `nix flake check`** (its `graft-nix` test) evaluates on a fresh Nix store, as in CI: it no longer
+  reads a store copy of `./src` that `--no-build` doesn't make. Consumers are unaffected.
+
 ## v2.2.1 - 2026-11-14
 
 ### Fixed
