@@ -10,6 +10,7 @@ from link_validator.validator import validate
 from tool_cli.graft import is_graft_dir
 
 MARKER_21 = "<!-- managed by graft: https://github.com/danielnaab/graft -->\n# scions/\n"
+MARKER_TUTEUR = "<!-- managed by tuteur: https://github.com/danielnaab/tuteur -->\n# scions/\n"
 MARKER_20 = "# vendor/\n\nManaged by [graft](https://github.com/danielnaab/graft).\n"
 
 
@@ -23,6 +24,11 @@ def _graft_dir(root: Path, rel: str, readme: str = MARKER_21) -> Path:
 def test_is_graft_dir_recognizes_both_markers(tmp_path: Path) -> None:
     assert is_graft_dir(_graft_dir(tmp_path, "a", MARKER_21))
     assert is_graft_dir(_graft_dir(tmp_path, "b", MARKER_20))
+
+
+def test_is_graft_dir_recognizes_tuteurs_marker(tmp_path: Path) -> None:
+    # tuteur 0.1.0 (graft's successor) writes its own marker in the same folder README.
+    assert is_graft_dir(_graft_dir(tmp_path, "c", MARKER_TUTEUR))
 
 
 def test_is_graft_dir_rejects_other_directories(tmp_path: Path) -> None:

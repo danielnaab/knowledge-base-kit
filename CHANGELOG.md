@@ -2,7 +2,12 @@
 
 ## [Unreleased]
 
+## v2.2.2 - 2026-11-21
+
 ### Fixed
+- **tuteur's folder marker.** The tools skip a folder whose README carries tuteur's marker
+  (`<!-- managed by tuteur: … -->`, written by tuteur 0.1.0, graft's successor) as they skip graft's. Without it,
+  `scan-backlinks` descended into a consumer's scions folder after `tuteur sync` and reported the kit's own specs.
 - **The kit's own `nix flake check`** (its `graft-nix` test) evaluates on a fresh Nix store, as in CI: it no longer
   reads a store copy of `./src` that `--no-build` doesn't make. Consumers are unaffected.
 

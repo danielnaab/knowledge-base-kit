@@ -4,10 +4,11 @@
 
 from pathlib import Path
 
-# The first line graft >= 2.1 writes in its directory's README.md, and the sentence 2.0 wrote.
-# Matches steward's GRAFT_MARKERS (duties/check-kb-integrity/check.ts).
+# The first line graft >= 2.1 writes in its directory's README.md, the sentence 2.0 wrote, and the first line
+# tuteur (graft's successor, 0.1.0) writes. Matches steward's GRAFT_MARKERS (duties/check-kb-integrity/check.ts).
 GRAFT_MARKERS = (
     "<!-- managed by graft: https://github.com/danielnaab/graft -->",
+    "<!-- managed by tuteur: https://github.com/danielnaab/tuteur -->",
     "Managed by [graft]",
 )
 

@@ -49,7 +49,7 @@ Three tools share identical CLI behavior: argument parsing, JSON output, exit co
 
 ### Graft directories
 
-- `tool_cli.graft.is_graft_dir(path)` is true when `path/README.md` carries one of graft's markers in its first 2 KB: `<!-- managed by graft: https://github.com/danielnaab/graft -->` (graft 2.1 and later, line 1) or `Managed by [graft]` (2.0)
+- `tool_cli.graft.is_graft_dir(path)` is true when `path/README.md` carries one of graft's markers in its first 2 KB: `<!-- managed by graft: https://github.com/danielnaab/graft -->` (graft 2.1 and later, line 1), `<!-- managed by tuteur: https://github.com/danielnaab/tuteur -->` (tuteur, graft's successor, 0.1.0 and later) or `Managed by [graft]` (2.0)
 - Every tool prunes such directories from its walk, at any depth
 - The markers match steward's `GRAFT_MARKERS` (duties/check-kb-integrity); change both together
 
