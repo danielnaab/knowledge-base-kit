@@ -1,29 +1,29 @@
-# managed by graft: https://github.com/danielnaab/graft (delete this line to keep your own edits)
-# graft's upgrade bot, run by the repo itself: weekly, move graft's own pin and the scions pinned to
-# a tag to the newest tag upstream, and propose the change as a PR from the branch graft/upgrade.
+# managed by tuteur: https://github.com/danielnaab/tuteur (delete this line to keep your own edits)
+# tuteur's upgrade bot, run by the repo itself: weekly, move tuteur's own pin and the patterns pinned to
+# a tag to the newest tag upstream, and propose the change as a PR from the branch tuteur/upgrade.
 # Nothing is pushed to the default branch: review and merge are yours. Copy to .forgejo/workflows/.
-# The steps are `nix run .#graft ci upgrade|pr` (graft's lib/ci.sh) at the graft version the
-# repo pins, and `graft upgrade` replaces this file with the copy each new version ships, as long as
+# The steps are `nix run .#tuteur ci upgrade|pr` (tuteur's lib/ci.sh) at the tuteur version the
+# repo pins, and `tuteur upgrade` replaces this file with the copy each new version ships, as long as
 # the line above is here.
-name: graft-upgrade
+name: tuteur-upgrade
 on:
   schedule:
     - cron: "23 6 * * 1"   # Mondays 06:23 UTC
   workflow_dispatch:
 
 concurrency:
-  group: graft-upgrade
+  group: tuteur-upgrade
   cancel-in-progress: false
 
 env:
   NIX_CONFIG: |
     experimental-features = nix-command flakes
     sandbox = false
-  BRANCH: graft/upgrade
+  BRANCH: tuteur/upgrade
 
 jobs:
-  # Upgrade, check and push. An upgrade of graft itself runs the new version's code here (its
-  # check), and the repo's own checks run over the new scions, all
+  # Upgrade, check and push. An upgrade of tuteur itself runs the new version's code here (its
+  # check), and the repo's own checks run over the new patterns, all
   # before review, so this job is given no secret: only the job token. If `nix flake check` fails
   # the branch is still pushed (its commit names the failing checks) and this job fails.
   upgrade:
@@ -42,32 +42,32 @@ jobs:
           set -euo pipefail
           git init -q .
           git remote add origin "$REPO_URL.git"
-          # The token is for this server only (scoped), never for the providers graft-upgrade asks.
+          # The token is for this server only (scoped), never for the providers tuteur-upgrade asks.
           git config "http.$SERVER/.extraheader" "Authorization: Basic $(printf 'x-access-token:%s' "$TOKEN" | base64 -w0)"
           git fetch -q --no-tags origin "$REF"
           git checkout -q --force -B "$BRANCH" FETCH_HEAD
 
-      - name: Upgrade, check the result, push it to graft/upgrade
+      - name: Upgrade, check the result, push it to tuteur/upgrade
         id: upgrade
         run: |
-          # graft's flake: beside the scions directory, the one folder whose README.md carries graft's
-          # marker (git grep doesn't look inside submodules), or the top when there is none yet.
+          # tuteur's flake: beside the patterns folder, the one folder whose README.md carries tuteur's
+          # marker (or graft's; git grep doesn't look inside submodules), or the top when there is none yet.
           # Bash and git only: the nixos/nix image has no sed.
-          rs=$(git grep -l -F -e '<!-- managed by graft: https://github.com/danielnaab/graft -->' -- '*/README.md' || true)
-          case $rs in *$'\n'*) echo "::error::two scions directories:" $rs "graft supports one per repository"; exit 1 ;; esac
+          rs=$(git grep -l -F -e '<!-- managed by tuteur: https://github.com/danielnaab/tuteur -->' -e '<!-- managed by graft: https://github.com/danielnaab/graft -->' -- '*/README.md' || true)
+          case $rs in *$'\n'*) echo "::error::two patterns folders:" $rs "tuteur supports one per repository"; exit 1 ;; esac
           sd=${rs%/README.md} fd=. flake=.
           if [[ $sd == */* ]]; then fd=${sd%/*}; fi
           if [ "$fd" != . ]; then
             flake=path:$PWD/$fd
-            # a path: flake reads the scions from the working tree: fill them (a git flake's Nix
+            # a path: flake reads the patterns from the working tree: fill them (a git flake's Nix
             # fetches them itself, at the commits the checkout records)
             git submodule update -q --init --recursive -- "$sd"
           fi
-          nix run "$flake#graft" ci upgrade
+          nix run "$flake#tuteur" ci upgrade
 
   # Open the PR (or retitle the open one, which the push updated), saying what changed upstream
   # and whether the checks passed. A fresh job, checked out at the default branch: it runs the
-  # graft that branch pins and never evaluates the upgraded flake, so the PR token never meets
+  # tuteur that branch pins and never evaluates the upgraded flake, so the PR token never meets
   # code nobody has reviewed yet. It runs when the upgrade job pushed, even if its checks failed.
   pr:
     needs: upgrade
@@ -95,18 +95,19 @@ jobs:
           API: ${{ github.server_url }}/api/v1/repos/${{ github.repository }}
           BASE: ${{ github.event.repository.default_branch }}
           # The job token can push, but Forgejo (through 11 at least) refuses it when opening a PR
-          # on a private repo. A user's token, in the Actions secret GRAFT_PR_TOKEN (set it once for
+          # on a private repo. A user's token, in the Actions secret TUTEUR_PR_TOKEN (or graft's GRAFT_PR_TOKEN,
+          # read through 0.1.x; set it once for
           # all your repos under Settings > Actions > Secrets), opens the PR as that user.
-          PR_TOKEN: ${{ secrets.GRAFT_PR_TOKEN || github.token }}
+          PR_TOKEN: ${{ secrets.TUTEUR_PR_TOKEN || secrets.GRAFT_PR_TOKEN || github.token }}
         run: |
-          # graft's flake: beside the scions directory, the one folder whose README.md carries graft's
-          # marker (git grep doesn't look inside submodules), or the top when there is none yet.
+          # tuteur's flake: beside the patterns folder, the one folder whose README.md carries tuteur's
+          # marker (or graft's; git grep doesn't look inside submodules), or the top when there is none yet.
           # Bash and git only: the nixos/nix image has no sed.
-          rs=$(git grep -l -F -e '<!-- managed by graft: https://github.com/danielnaab/graft -->' -- '*/README.md' || true)
-          case $rs in *$'\n'*) echo "::error::two scions directories:" $rs "graft supports one per repository"; exit 1 ;; esac
+          rs=$(git grep -l -F -e '<!-- managed by tuteur: https://github.com/danielnaab/tuteur -->' -e '<!-- managed by graft: https://github.com/danielnaab/graft -->' -- '*/README.md' || true)
+          case $rs in *$'\n'*) echo "::error::two patterns folders:" $rs "tuteur supports one per repository"; exit 1 ;; esac
           sd=${rs%/README.md} fd=. flake=.
           if [[ $sd == */* ]]; then fd=${sd%/*}; fi
           if [ "$fd" != . ]; then
             flake=path:$PWD/$fd
           fi
-          nix run "$flake#graft" ci pr
+          nix run "$flake#tuteur" ci pr

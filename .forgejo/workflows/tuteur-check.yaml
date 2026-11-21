@@ -1,21 +1,21 @@
-# managed by graft: https://github.com/danielnaab/graft (delete this line to keep your own edits)
-# graft's integrity check: every scion is a registered submodule at a release tag, graft's workflows
+# managed by tuteur: https://github.com/danielnaab/tuteur (delete this line to keep your own edits)
+# tuteur's integrity check: every pattern is a registered submodule at a release tag, tuteur's workflows
 # are this version's, and the flake evaluates.
-# Copy to .forgejo/workflows/. The step itself is `nix run .#graft ci check` (graft's lib/ci.sh)
-# at the graft version the repo pins, and `graft upgrade` replaces this file with the copy each new
+# Copy to .forgejo/workflows/. The step itself is `nix run .#tuteur ci check` (tuteur's lib/ci.sh)
+# at the tuteur version the repo pins, and `tuteur upgrade` replaces this file with the copy each new
 # version ships, as long as the line above is here.
-name: graft-check
+name: tuteur-check
 on:
   pull_request:
   push:
     branches: [main]
 
 concurrency:
-  group: graft-check-${{ github.ref }}
+  group: tuteur-check-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  scions:
+  patterns:
     # Any runner with Nix. On Forgejo, a docker label for docker://nixos/nix keeps this off
     # host runners; its jobs are short (a fetch and a diff).
     runs-on: nixos-latest
@@ -38,19 +38,19 @@ jobs:
             fetch -q --no-tags --depth=1 origin "$SHA"
           git checkout -q --force --detach "$SHA"
 
-      - name: Scions registered and at release tags
+      - name: Patterns registered and at release tags
         run: |
-          # graft's flake: beside the scions directory, the one folder whose README.md carries graft's
-          # marker (git grep doesn't look inside submodules), or the top when there is none yet.
+          # tuteur's flake: beside the patterns folder, the one folder whose README.md carries tuteur's
+          # marker (or graft's; git grep doesn't look inside submodules), or the top when there is none yet.
           # Bash and git only: the nixos/nix image has no sed.
-          rs=$(git grep -l -F -e '<!-- managed by graft: https://github.com/danielnaab/graft -->' -- '*/README.md' || true)
-          case $rs in *$'\n'*) echo "::error::two scions directories:" $rs "graft supports one per repository"; exit 1 ;; esac
+          rs=$(git grep -l -F -e '<!-- managed by tuteur: https://github.com/danielnaab/tuteur -->' -e '<!-- managed by graft: https://github.com/danielnaab/graft -->' -- '*/README.md' || true)
+          case $rs in *$'\n'*) echo "::error::two patterns folders:" $rs "tuteur supports one per repository"; exit 1 ;; esac
           sd=${rs%/README.md} fd=. flake=.
           if [[ $sd == */* ]]; then fd=${sd%/*}; fi
           if [ "$fd" != . ]; then
             flake=path:$PWD/$fd
-            # a path: flake reads the scions from the working tree: fill them (a git flake's Nix
+            # a path: flake reads the patterns from the working tree: fill them (a git flake's Nix
             # fetches them itself, at the commits the checkout records)
             git submodule update -q --init --recursive -- "$sd"
           fi
-          nix run "$flake#graft" ci check
+          nix run "$flake#tuteur" ci check
