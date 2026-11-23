@@ -122,14 +122,14 @@ How to configure and run them: [docs/tools.md](docs/tools.md). Each tool's behav
 
 ## Using this in your repository
 
-Graft it with [graft](https://github.com/danielnaab/graft) v2.13.1 or later: the kit becomes a git submodule in
-your scions directory, at a release tag.
+Take it as a pattern with [tuteur](https://github.com/danielnaab/tuteur) 0.1.0 or later: the kit becomes a git
+submodule in your patterns folder (`.patterns/`), at a release tag.
 
 ```bash
-nix run github:danielnaab/graft/v2.13.1 -- add https://github.com/danielnaab/knowledge-base-kit
+nix run github:danielnaab/tuteur/v0.1.0 -- add https://github.com/danielnaab/knowledge-base-kit
 ```
 
-Its [graft.nix](graft.nix) wires the checker into your flake with no code of yours: the tools `kb-lint`,
+Its [tuteur.nix](tuteur.nix) wires the checker into your flake with no code of yours: the tools `kb-lint`,
 `check-links`, `scan-backlinks` and `kb-validate` in `packages.<system>.tools`, and a `nix flake check` check
 (`knowledge-base-kit-kb`: links, then lint) when your repo has a `knowledge-base.yaml` at the top of its
 flake's source.
@@ -146,12 +146,12 @@ entrypoints:
 
 imports:
   - kind: local
-    path: scions/knowledge-base-kit
+    path: .patterns/knowledge-base-kit
     relationship: foundational
 ```
 
 To run the checker: `nix build .#tools && result/bin/check-links`, or without Nix
-`PYTHONPATH=scions/knowledge-base-kit/src python3 -B -m link_validator .` ([docs/tools.md](docs/tools.md)).
+`PYTHONPATH=.patterns/knowledge-base-kit/src python3 -B -m link_validator .` ([docs/tools.md](docs/tools.md)).
 [notebook-kit](https://github.com/danielnaab/notebook-kit) wires this up as `just check-kb`.
 
 ## Architecture
@@ -164,7 +164,7 @@ knowledge-base-kit (this repo: conventions, and the checker that enforces them)
 your knowledge base (follows the conventions, runs the checker)
 ```
 
-The kit grafts living-specifications into `scions/` (a git submodule; consumers' clones don't fill it). living-specifications follows these
+The kit takes living-specifications as a pattern in `scions/` (a git submodule, in the folder graft named; consumers' clones don't fill it). living-specifications follows these
 conventions as a knowledge base: a conformance edge, not a design dependency (see
 [Managing KB dependencies](docs/playbooks/manage-kb-dependencies.md#dependencies-are-between-exports)).
 

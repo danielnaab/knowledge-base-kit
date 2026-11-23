@@ -10,7 +10,7 @@ that enforces them (`src/`, specified in `specs/`).
 - **Conventions**: [policies](docs/policies/), [playbooks](docs/playbooks/), [strategies](docs/strategies/)
 - **Checker**: [usage](docs/tools.md), [specs](specs/README.md), code in `src/`, tests in `tests/`
 - **Examples**: [examples/](examples/) (strategy demonstrations)
-- **Grafted**: [living specifications](scions/living-specifications/README.md), the methodology the
+- **Patterns**: [living specifications](scions/living-specifications/README.md), the methodology the
   specs and the backlink scanner follow
 
 ## Key policies
@@ -22,8 +22,8 @@ that enforces them (`src/`, specified in `specs/`).
 4. **Write boundaries**: check `rules.writes` in knowledge-base.yaml before editing
 5. **One owner per rule**: a convention changes in `docs/` and the checker together. The checker enforces rules;
    it doesn't define them. Its specs cite the policy each check implements.
-6. **What consumers get**: the whole repository at a release tag, as a git submodule (graft v2.13.0), without
-   its own `scions/`; [graft.nix](graft.nix) wires the checker's tools and check into their flake. Files they
+6. **What consumers get**: the whole repository at a release tag, as a git submodule (a tuteur pattern), without
+   its own `scions/`; [tuteur.nix](tuteur.nix) wires the checker's tools and check into their flake. Files they
    read link by URL into `scions/` ([Linking policy](docs/policies/linking.md#exported-files)).
 
 ## Agent workflow
@@ -33,15 +33,15 @@ Use **Plan → Patch → Verify** (see [Agent workflow playbook](docs/playbooks/
 1. **Plan**: state intent, files to touch, uncertainties
 2. **Patch**: smallest diffs that achieve the goal. For the checker: spec first, then a failing test, then code.
 3. **Verify**: `uv run pytest`, `uv run ruff check src tests`, then dogfood: `uv run link-validator`,
-   `uv run kb-linter`, `uv run backlink-scanner`; `nix flake check` for the tools, `graft.nix`'s contract test
+   `uv run kb-linter`, `uv run backlink-scanner`; `nix flake check` for the tools, `tuteur.nix`'s contract test
    and the kit's own docs (`checks.<system>.kb`).
 
 ## Write boundaries
 
 Agents may edit `docs/**`, `notes/**`, `examples/**`, `specs/**`, `src/**`, `tests/**`.
-Ask before editing `knowledge-base.yaml` and root files. Ask before editing a scion in `scions/` (git submodules
-at release tags): a fix belongs in the provider, made on a branch in the scion, released, then taken with
-`nix run .#graft upgrade` (`.claude/settings.json` asks for Claude Code). Never edit `secrets/**` or
+Ask before editing `knowledge-base.yaml` and root files. Ask before editing a pattern in `scions/` (git submodules
+at release tags): a fix belongs in the provider, made on a branch in its own repository, released, then taken with
+`nix run .#tuteur upgrade` (`.claude/settings.json` asks for Claude Code). Never edit `secrets/**` or
 `credentials/**`.
 
 ## Checker architecture

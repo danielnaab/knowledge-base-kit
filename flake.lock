@@ -1,26 +1,5 @@
 {
   "nodes": {
-    "graft": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1795298614,
-        "narHash": "sha256-1yle7+JEAWOyX4Xwc0dxaSuGUNxWXeeiQFjgk8F6pm8=",
-        "owner": "danielnaab",
-        "repo": "tuteur",
-        "rev": "e8236dd2e40b5517a21824dceb31dc37588f507a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "danielnaab",
-        "ref": "v0.1.0",
-        "repo": "tuteur",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1767313136,
@@ -39,8 +18,29 @@
     },
     "root": {
       "inputs": {
-        "graft": "graft",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "tuteur": "tuteur"
+      }
+    },
+    "tuteur": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795298614,
+        "narHash": "sha256-1yle7+JEAWOyX4Xwc0dxaSuGUNxWXeeiQFjgk8F6pm8=",
+        "owner": "danielnaab",
+        "repo": "tuteur",
+        "rev": "e8236dd2e40b5517a21824dceb31dc37588f507a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "danielnaab",
+        "ref": "v0.1.0",
+        "repo": "tuteur",
+        "type": "github"
       }
     }
   },

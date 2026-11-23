@@ -2,6 +2,27 @@
 
 ## [Unreleased]
 
+For [tuteur](https://github.com/danielnaab/tuteur) (graft's successor): the kit uses tuteur's names, which tuteur
+0.2.0 requires.
+
+### Changed
+- **BREAKING: the provider file is `tuteur.nix`** (tuteur's provider/3), no longer `graft.nix`. Its function takes
+  `pattern` (was `scion`); it gives the same tools, check and `src` as before. A consumer on graft v2 gets nothing
+  from the kit's flake wiring any more (no tools, no `knowledge-base-kit-kb` check): move it to tuteur 0.1.0 or later
+  first (tuteur's "Move from graft v2"). A consumer on tuteur 0.1.x loses `tuteur check`'s line about the kit's
+  `graft.nix`. A sibling provider reads the sources as `patterns.knowledge-base-kit.src` (tuteur 0.1.x also passes
+  `scions`, which 0.2.0 drops).
+- **The kit's own flake** names its input `tuteur`, takes `patterns` in `perSystem`, and keeps its folder
+  `scions/` with `dir = "scions"`, so tuteur 0.2.0 still finds it. Its contract test is now `checks.<system>.tuteur-nix`
+  (was `graft-nix`).
+- **README, `docs/tools.md`, Manage KB dependencies playbook, Linking policy, AGENTS.md:** tuteur's words and
+  commands (`nix run .#tuteur …`, patterns, `.patterns/`), and tuteur 0.1.0 as the version to take the kit with.
+
+### Upgrading
+- On tuteur 0.1.0 or later: this is a breaking version (a new major), which the weekly job holds; take it with
+  `nix run .#tuteur upgrade knowledge-base-kit@vX.0.0`. Nothing else in your repo changes.
+- Still on graft v2: move to tuteur 0.1.0 first, then upgrade.
+
 ## v2.2.2 - 2026-11-21
 
 ### Fixed

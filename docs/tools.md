@@ -18,7 +18,7 @@ kb-linter /path/to/kb
 link-validator /path/to/kb
 ```
 
-From a repo that grafts the kit with graft v2.13.0 or later, the kit's `graft.nix` puts the tools in the
+From a repo that takes the kit as a pattern with tuteur 0.1.0 or later, the kit's `tuteur.nix` puts the tools in the
 repo's `packages.<system>.tools` (on PATH in its dev shell): `kb-lint`, `check-links`, `scan-backlinks`, and
 `kb-validate` (links, then lint findings as a report). Each takes the knowledge base's directory (default `.`)
 and `--report-only`:
@@ -30,15 +30,16 @@ nix build .#tools && result/bin/check-links && result/bin/kb-lint
 The repo's `nix flake check` also runs `checks.<system>.knowledge-base-kit-kb` (check-links, then kb-lint)
 when it has a `knowledge-base.yaml` at the top of its flake's source.
 
-Without Nix (Python 3.11+ standard library only), run the scion's sources:
+Without Nix (Python 3.11+ standard library only), run the pattern's sources (`.patterns/`, tuteur's folder, or
+`scions/` where a repo kept graft's):
 
 ```bash
-PYTHONPATH=scions/knowledge-base-kit/src python3 -B -m link_validator .
-PYTHONPATH=scions/knowledge-base-kit/src python3 -B -m kb_linter .
+PYTHONPATH=.patterns/knowledge-base-kit/src python3 -B -m link_validator .
+PYTHONPATH=.patterns/knowledge-base-kit/src python3 -B -m kb_linter .
 ```
 
-`-B` keeps Python from writing `__pycache__/` into the scion, which `graft check` reports as uncommitted edits.
-A sibling scion's `graft.nix` reads the sources as `scions.knowledge-base-kit.src`.
+`-B` keeps Python from writing `__pycache__/` into the pattern, which `tuteur check` reports as uncommitted edits.
+A sibling pattern's `tuteur.nix` reads the sources as `patterns.knowledge-base-kit.src`.
 
 Exit codes: 0 no findings (or `--report-only`), 1 findings, 2 a configuration error. Output is JSON.
 
@@ -66,7 +67,7 @@ By default the tools check `docs/`, `policies/`, `playbooks/` (the linter) and a
 | `rules.checks.okf.version` | kb-linter | The `okf_version` the bundle-root `index.md` must declare |
 
 - Globs are repository-relative: `*` stays within a path segment, `**` crosses segments, `dir/**` is everything beneath `dir/`.
-- Hidden directories (`.pi/`) are walked only when an include names them or reaches them with `**`. `.git/`, `node_modules/` and directories graft wrote are never walked.
+- Hidden directories (`.pi/`) are walked only when an include names them or reaches them with `**`. `.git/`, `node_modules/` and directories tuteur or graft wrote are never walked.
 - `rules.lifecycle.statuses` may be an inline list (quoted or bare) or a block list.
 - If a configured value cannot be read, the tool exits 2 and names the key.
 - Example: a notebook-style KB with dated notes (no status) and wiki pages (status and Sources) sets

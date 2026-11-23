@@ -1,4 +1,5 @@
-# What a repository that grafts knowledge-base-kit gets (graft v2.13.0 or later reads this file).
+# What a repository that takes knowledge-base-kit as a pattern gets: tuteur's provider file (provider/3,
+# tuteur 0.1.0 or later). graft v2 read graft.nix, which this kit no longer ships.
 #
 # tools (on PATH through the repo's packages.<system>.tools; each takes the knowledge base's directory,
 # default `.`, and --report-only):
@@ -8,10 +9,10 @@
 #   kb-validate     check-links, then kb-lint's findings as a report
 # checks: `kb` (checks.<system>.knowledge-base-kit-kb): check-links and kb-lint on the repo, when it has a
 #   knowledge-base.yaml at the top of its flake's source; none otherwise.
-# For a sibling scion: scions.knowledge-base-kit.src, the checker's Python sources (PYTHONPATH).
-{ pkgs, lib, scion, consumer, ... }:
+# For a sibling pattern: patterns.knowledge-base-kit.src, the checker's Python sources (PYTHONPATH).
+{ pkgs, lib, pattern, consumer, ... }:
 let
-  src = "${scion}/src";
+  src = "${pattern}/src";
   tool = name: description: text: pkgs.writeShellApplication {
     inherit name;
     runtimeInputs = [ pkgs.python3 ];
