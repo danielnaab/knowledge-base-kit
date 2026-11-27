@@ -2,7 +2,7 @@
   description = "knowledge-base-kit: knowledge base conventions, and the checker that enforces them (link validation, linting, backlink scanning)";
 
   # scions/living-specifications is a git submodule, a pattern (tuteur). The folder keeps graft's name, set as
-  # dir below: tuteur 0.2.0 no longer finds scions/ without it.
+  # dir below: tuteur 0.3.0 no longer finds scions/ without it.
   inputs.self.submodules = true;
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
