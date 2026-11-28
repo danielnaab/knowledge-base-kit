@@ -2,6 +2,17 @@
 
 ## [Unreleased]
 
+## v3.0.1 - 2026-11-27
+
+### Changed
+- **The kit's own patterns are in `.patterns/`** (was `scions/`, with `dir = "scions"`), on tuteur v0.3.0. A consumer
+  that fills the kit's nested submodules now finds living-specifications at `.patterns/living-specifications`.
+- **living-specifications v1.0.3** (was v1.0.2): its README describes adoption with tuteur.
+- `tuteur.nix`, the tools, the check and the docs consumers read are unchanged.
+
+### Upgrading
+- Nothing to do: the weekly job takes this patch.
+
 ## v3.0.0 - 2026-11-27
 
 For [tuteur](https://github.com/danielnaab/tuteur) (graft's successor): the kit uses tuteur's names, which tuteur
