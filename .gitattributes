@@ -12,7 +12,7 @@
 /flake.lock          export-ignore
 /flake.nix           export-ignore
 /pyproject.toml      export-ignore
-/scions/             export-ignore
+/.patterns/          export-ignore
 /specs/              export-ignore
 /tests/              export-ignore
 /uv.lock             export-ignore

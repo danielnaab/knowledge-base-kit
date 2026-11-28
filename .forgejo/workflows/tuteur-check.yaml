@@ -41,9 +41,9 @@ jobs:
       - name: Patterns registered and at release tags
         run: |
           # tuteur's flake: beside the patterns folder, the one folder whose README.md carries tuteur's
-          # marker (or graft's; git grep doesn't look inside submodules), or the top when there is none yet.
+          # marker (git grep doesn't look inside submodules), or the top when there is none yet.
           # Bash and git only: the nixos/nix image has no sed.
-          rs=$(git grep -l -F -e '<!-- managed by tuteur: https://github.com/danielnaab/tuteur -->' -e '<!-- managed by graft: https://github.com/danielnaab/graft -->' -- '*/README.md' || true)
+          rs=$(git grep -l -F -e '<!-- managed by tuteur: https://github.com/danielnaab/tuteur -->' -- '*/README.md' || true)
           case $rs in *$'\n'*) echo "::error::two patterns folders:" $rs "tuteur supports one per repository"; exit 1 ;; esac
           sd=${rs%/README.md} fd=. flake=.
           if [[ $sd == */* ]]; then fd=${sd%/*}; fi
