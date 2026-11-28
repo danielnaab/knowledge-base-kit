@@ -9,3 +9,11 @@ Run `git submodule update --init --recursive` (or `nix run .#tuteur sync`).
   push to the provider, release, then `nix run .#tuteur upgrade NAME`.
 - `nix run .#tuteur check` fails until every pattern is clean and at a release tag, and while try is on.
 - Versions: `nix run .#tuteur outdated`.
+
+## What each pattern offers
+
+Each pattern's guide says what it ships for this repository (tools, recipes, checks, settings) and
+which of its docs to read when. Read a pattern's guide before you use what it ships. Point this repository's
+AGENTS.md here, then add its own rules.
+
+- [living-specifications](living-specifications/README.md) (it has no USING.md: its README)

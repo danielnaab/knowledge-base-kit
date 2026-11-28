@@ -5,7 +5,7 @@
       "Edit(/credentials/**)"
     ],
     "ask": [
-      "Edit(/scions/**)"
+      "Edit(/.patterns/**)"
     ]
   }
 }

@@ -29,16 +29,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1795298614,
-        "narHash": "sha256-1yle7+JEAWOyX4Xwc0dxaSuGUNxWXeeiQFjgk8F6pm8=",
+        "lastModified": 1795828969,
+        "narHash": "sha256-ePfWqAJb98lVI6WO4ywJ5b3ju1wromdAz9gRyc1MQww=",
         "owner": "danielnaab",
         "repo": "tuteur",
-        "rev": "e8236dd2e40b5517a21824dceb31dc37588f507a",
+        "rev": "c39490ffcbb200986bb09819ec0f4395d1ac2b2b",
         "type": "github"
       },
       "original": {
         "owner": "danielnaab",
-        "ref": "v0.1.0",
+        "ref": "v0.3.0",
         "repo": "tuteur",
         "type": "github"
       }

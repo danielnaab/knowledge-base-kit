@@ -1,18 +1,16 @@
 {
   description = "knowledge-base-kit: knowledge base conventions, and the checker that enforces them (link validation, linting, backlink scanning)";
 
-  # scions/living-specifications is a git submodule, a pattern (tuteur). The folder keeps graft's name, set as
-  # dir below: tuteur 0.3.0 no longer finds scions/ without it.
+  # .patterns/living-specifications is a git submodule, a pattern (tuteur).
   inputs.self.submodules = true;
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
-    tuteur = { url = "github:danielnaab/tuteur/v0.1.0"; inputs.nixpkgs.follows = "nixpkgs"; };
+    tuteur = { url = "github:danielnaab/tuteur/v0.3.0"; inputs.nixpkgs.follows = "nixpkgs"; };
   };
 
   outputs = { self, tuteur, ... }@inputs:
     tuteur.lib.mkFlake {
       inherit inputs;
-      dir = "scions";
       # The kit's tools and check come from tuteur.nix, exactly as a repo that takes the kit gets them, so
       # they are defined once: packages.<system>.tools, an app per tool (`nix run .#kb-lint` from a knowledge
       # base's root), and checks.<system>.kb, the kit's own docs against its conventions.

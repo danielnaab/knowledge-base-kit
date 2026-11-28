@@ -10,7 +10,7 @@ that enforces them (`src/`, specified in `specs/`).
 - **Conventions**: [policies](docs/policies/), [playbooks](docs/playbooks/), [strategies](docs/strategies/)
 - **Checker**: [usage](docs/tools.md), [specs](specs/README.md), code in `src/`, tests in `tests/`
 - **Examples**: [examples/](examples/) (strategy demonstrations)
-- **Patterns**: [living specifications](scions/living-specifications/README.md), the methodology the
+- **Patterns**: [living specifications](.patterns/living-specifications/README.md), the methodology the
   specs and the backlink scanner follow
 
 ## Key policies
@@ -23,8 +23,8 @@ that enforces them (`src/`, specified in `specs/`).
 5. **One owner per rule**: a convention changes in `docs/` and the checker together. The checker enforces rules;
    it doesn't define them. Its specs cite the policy each check implements.
 6. **What consumers get**: the whole repository at a release tag, as a git submodule (a tuteur pattern), without
-   its own `scions/`; [tuteur.nix](tuteur.nix) wires the checker's tools and check into their flake. Files they
-   read link by URL into `scions/` ([Linking policy](docs/policies/linking.md#exported-files)).
+   its own `.patterns/`; [tuteur.nix](tuteur.nix) wires the checker's tools and check into their flake. Files they
+   read link by URL into `.patterns/` ([Linking policy](docs/policies/linking.md#exported-files)).
 
 ## Agent workflow
 
@@ -39,7 +39,7 @@ Use **Plan → Patch → Verify** (see [Agent workflow playbook](docs/playbooks/
 ## Write boundaries
 
 Agents may edit `docs/**`, `notes/**`, `examples/**`, `specs/**`, `src/**`, `tests/**`.
-Ask before editing `knowledge-base.yaml` and root files. Ask before editing a pattern in `scions/` (git submodules
+Ask before editing `knowledge-base.yaml` and root files. Ask before editing a pattern in `.patterns/` (git submodules
 at release tags): a fix belongs in the provider, made on a branch in its own repository, released, then taken with
 `nix run .#tuteur upgrade` (`.claude/settings.json` asks for Claude Code). Never edit `secrets/**` or
 `credentials/**`.

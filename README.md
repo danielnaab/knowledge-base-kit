@@ -164,7 +164,7 @@ knowledge-base-kit (this repo: conventions, and the checker that enforces them)
 your knowledge base (follows the conventions, runs the checker)
 ```
 
-The kit takes living-specifications as a pattern in `scions/` (a git submodule, in the folder graft named; consumers' clones don't fill it). living-specifications follows these
+The kit takes living-specifications as a pattern in `.patterns/` (a git submodule; consumers' clones don't fill it). living-specifications follows these
 conventions as a knowledge base: a conformance edge, not a design dependency (see
 [Managing KB dependencies](docs/playbooks/manage-kb-dependencies.md#dependencies-are-between-exports)).
 
